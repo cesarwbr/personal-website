@@ -1,15 +1,23 @@
 export default function Profile() {
   return (
     <div className="profile">
-      <img src="/images/photo.png" alt="Cesar" className="photo" />
+      <div className="photo-container">
+        <img src="/images/photo.png" alt="Cesar" className="photo" />
+      </div>
       <p className="profile--description">
         <span className="profile--description--hero">Hey, I'm Cesar.</span> I'm
         a software engineer, builder, and writer.
       </p>
       <style jsx>{`
         .photo {
+          width: 100%;
+          height: 100%;
+        }
+
+        .photo-container {
           width: 142px;
           height: 142px;
+          flex-shrink: 0;
         }
 
         .profile {
