@@ -44,9 +44,9 @@ export default function Articles({ allArticles }: Props) {
         }
 
         .title {
-          font-size: 28px;
+          font-size: 24px;
           color: black;
-          margin-bottom: 28px;
+          margin-bottom: 24px;
           margin-top: 0;
         }
 
