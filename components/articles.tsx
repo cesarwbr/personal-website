@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 import { Article } from "../lib/articles";
 
 type Props = {
@@ -6,12 +8,7 @@ type Props = {
 
 export default function Articles({ allArticles }: Props) {
   function formatPubDate(pubDate: string) {
-    const date = new Date(pubDate);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+    return dayjs(pubDate).format("MMMM DD, YYYY");
   }
 
   return (
