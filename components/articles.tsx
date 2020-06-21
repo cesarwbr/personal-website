@@ -13,7 +13,7 @@ export default function Articles({ allArticles }: Props) {
 
   return (
     <div className="articles--container">
-      <h4 className="title">Recent Posts</h4>
+      <h2 className="title">Recent Posts</h2>
       <div className="articles">
         {allArticles.map((article) => (
           <a
@@ -29,10 +29,10 @@ export default function Articles({ allArticles }: Props) {
               }}
             />
             <div className="article--info">
-              <div className="article--info--title">{article.title}</div>
-              <div className="article--info--date">
+              <h3 className="article--info--title">{article.title}</h3>
+              <p className="article--info--date">
                 {formatPubDate(article.pubDate)}
-              </div>
+              </p>
             </div>
           </a>
         ))}
@@ -109,6 +109,7 @@ export default function Articles({ allArticles }: Props) {
           font-weight: 600;
           letter-spacing: -0.5px;
           line-height: 1.2;
+          margin: 0;
         }
 
         .article--info--date {

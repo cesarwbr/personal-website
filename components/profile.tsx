@@ -4,10 +4,10 @@ export default function Profile() {
       <div className="photo-container">
         <img src="/images/photo.png" alt="Cesar" className="photo" />
       </div>
-      <p className="profile--description">
+      <h1 className="profile--description">
         <span className="profile--description--hero">Hey, I'm Cesar.</span> I'm
         a software engineer, builder, and writer.
-      </p>
+      </h1>
       <style jsx>{`
         .photo {
           width: 100%;

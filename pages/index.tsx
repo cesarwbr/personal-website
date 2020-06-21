@@ -24,6 +24,10 @@ export default function Home({ allArticles }: Props) {
       <Head>
         <title>Cesar William</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Hey, I'm Cesar. I'm a software engineer, builder, and writer."
+        />
       </Head>
 
       <Header />
