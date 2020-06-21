@@ -15,36 +15,49 @@ export default function Articles({ allArticles }: Props) {
   }
 
   return (
-    <div className="articles">
-      {allArticles.map((article) => (
-        <a
-          href={article.link}
-          target="__blank"
-          key={article.title}
-          className="article"
-        >
-          <div
-            className="article--image"
-            style={{
-              background: `url(${article.thumbnail}) center center / cover`,
-            }}
-          />
-          <div className="article--info">
-            <div className="article--info--title">{article.title}</div>
-            <div className="article--info--date">
-              {formatPubDate(article.pubDate)}
+    <div className="articles--container">
+      <h4 className="title">Recent Posts</h4>
+      <div className="articles">
+        {allArticles.map((article) => (
+          <a
+            href={article.link}
+            target="__blank"
+            key={article.title}
+            className="article"
+          >
+            <div
+              className="article--image"
+              style={{
+                background: `url(${article.thumbnail}) center center / cover`,
+              }}
+            />
+            <div className="article--info">
+              <div className="article--info--title">{article.title}</div>
+              <div className="article--info--date">
+                {formatPubDate(article.pubDate)}
+              </div>
             </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        ))}
+      </div>
       <style jsx>{`
         a {
           color: inherit;
           text-decoration: none;
         }
 
-        .articles {
+        .title {
+          font-size: 28px;
+          color: black;
+          margin-bottom: 28px;
+          margin-top: 0;
+        }
+
+        .articles--container {
           margin-top: 120px;
+        }
+
+        .articles {
           display: grid;
           width: 100%;
           grid-template-columns: 1fr;

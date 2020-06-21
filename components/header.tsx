@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 export default function Header() {
   return (
     <header>
-      <div className="name">Cesar William</div>
+      <Link href="/">
+        <a className="name">Cesar William</a>
+      </Link>
 
       <style jsx>{`
         header {
@@ -16,6 +20,11 @@ export default function Header() {
           font-size: 19px;
           letter-spacing: 0.1rem;
           text-transform: uppercase;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
         }
       `}</style>
     </header>
