@@ -11,9 +11,7 @@ export async function getAllArticles(): Promise<Article[]> {
   return items
     .filter((item) => item.thumbnail.includes("cdn-images"))
     .map((item) => ({
-      categories: item.categories,
       title: item.title,
-      description: item.description,
       thumbnail: item.thumbnail,
       pubDate: item.pubDate,
       link: item.link,
@@ -21,9 +19,7 @@ export async function getAllArticles(): Promise<Article[]> {
 }
 
 export interface Article {
-  categories: string[];
   title: string;
-  description: string;
   thumbnail: string;
   pubDate: string;
   link: string;
