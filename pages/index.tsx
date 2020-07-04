@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import Profile from "../components/profile";
 import Articles from "../components/articles";
+import { getArticlesJSONLD } from "../utils/jsonld";
 
 export async function getServerSideProps(context) {
   const allArticles = await getAllArticles();
@@ -39,6 +40,11 @@ export default function Home({ allArticles }: Props) {
       </main>
 
       <Footer />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: getArticlesJSONLD(allArticles) }}
+      />
 
       <style jsx>{`
         .container {

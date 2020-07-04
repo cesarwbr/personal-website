@@ -15,6 +15,9 @@ export async function getAllArticles(): Promise<Article[]> {
       thumbnail: item.thumbnail,
       pubDate: item.pubDate,
       link: item.link,
+      description: item.description,
+      guid: item.guid,
+      categories: item.categories,
     }));
 }
 
@@ -23,4 +26,7 @@ export interface Article {
   thumbnail: string;
   pubDate: string;
   link: string;
+  description: string;
+  guid: string;
+  categories: string[];
 }
