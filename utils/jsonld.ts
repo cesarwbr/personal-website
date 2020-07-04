@@ -18,6 +18,18 @@ export function getArticlesJSONLD(articles: Article[]): string {
       return {
         "@type": "BlogPosting",
         author: "Cesar William Alvarenga",
+        publisher: {
+          "@type": "Organization",
+          email: "cesarwbr@gmail.com",
+          name: "Cesar William Alvarenga",
+          image: "https://cesarwilliam.com/images/photo.png",
+          logo: {
+            "@type": "ImageObject",
+            url: `https://cesarwilliam.com/images/photo.png`,
+            width: 150,
+            height: 150,
+          },
+        },
         thumbnailUrl: article.thumbnail,
         description: article.description,
         url: article.link,
@@ -25,6 +37,10 @@ export function getArticlesJSONLD(articles: Article[]): string {
         name: article.title,
         datePublished: article.pubDate,
         keywords: article.categories.join(","),
+        headline: article.title,
+        image: article.thumbnail,
+        dateModified: article.pubDate,
+        mainEntityOfPage: "https://medium.com",
       };
     }),
   };
