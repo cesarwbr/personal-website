@@ -1,23 +1,27 @@
 import { Article } from "../lib/articles";
 
 export function getArticlesJSONLD(articles: Article[]): string {
+  const person = {
+    "@type": "Person",
+    email: "cesarwbr@gmail.com",
+    name: "Cesar William Alvarenga",
+    familyName: "Alvarenga",
+    gender: "male",
+    givenName: "Cesar",
+    jobTitle: "Software Engineer",
+    image: "https://cesarwilliam.com/images/photo.png",
+  };
+
   const articlesFormatted = {
     "@context": "http://schema.org",
-    "@type": "Blog",
-    publisher: {
-      "@type": "Person",
-      email: "cesarwbr@gmail.com",
-      name: "Cesar William Alvarenga",
-      familyName: "Alvarenga",
-      gender: "male",
-      givenName: "Cesar",
-      jobTitle: "Software Engineer",
-      image: "https://cesarwilliam.com/images/photo.png",
-    },
-    blogPosts: articles.map((article) => {
+    "@type": "ItemList",
+    numberOfItems: articles.length,
+    itemListElement: articles.map((article, index) => {
       return {
-        "@type": "BlogPosting",
-        author: "Cesar William Alvarenga",
+        "@type": "TechArticle",
+        accountablePerson: person,
+        author: person,
+        editor: person,
         publisher: {
           "@type": "Organization",
           email: "cesarwbr@gmail.com",
@@ -31,8 +35,8 @@ export function getArticlesJSONLD(articles: Article[]): string {
           },
         },
         thumbnailUrl: article.thumbnail,
-        description: article.description,
-        url: article.link,
+        articleBody: article.description,
+        url: article.guid,
         identifier: article.guid,
         name: article.title,
         datePublished: article.pubDate,
@@ -40,7 +44,9 @@ export function getArticlesJSONLD(articles: Article[]): string {
         headline: article.title,
         image: article.thumbnail,
         dateModified: article.pubDate,
+        discussionUrl: article.link,
         mainEntityOfPage: "https://medium.com",
+        position: index + 1,
       };
     }),
   };
