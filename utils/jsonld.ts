@@ -44,7 +44,7 @@ export function getArticlesJSONLD(articles: Article[]): string {
         headline: article.title,
         image: article.thumbnail,
         dateModified: article.pubDate,
-        discussionUrl: article.link,
+        discussionUrl: article.guid,
         mainEntityOfPage: "https://medium.com",
         position: index + 1,
       };
