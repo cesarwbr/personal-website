@@ -29,6 +29,14 @@ export default function Home({ allArticles }: Props) {
           name="description"
           content="Hey, I'm Cesar. I'm a software engineer, builder, and writer."
         />
+        <meta
+          name="google-site-verification"
+          content="mcFqnSQfhKdWTQcZXzvRaGngL-vBw4w9HBAphsVeBPo"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: getArticlesJSONLD(allArticles) }}
+        />
       </Head>
 
       <Header />
@@ -40,11 +48,6 @@ export default function Home({ allArticles }: Props) {
       </main>
 
       <Footer />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: getArticlesJSONLD(allArticles) }}
-      />
 
       <style jsx>{`
         .container {
