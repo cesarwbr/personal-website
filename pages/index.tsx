@@ -34,6 +34,18 @@ export default function Home({ allArticles }: Props) {
           content="mcFqnSQfhKdWTQcZXzvRaGngL-vBw4w9HBAphsVeBPo"
         />
         <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-67252968-1"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {
+            // @ts-ignore
+            dataLayer.push(arguments)
+          }
+          gtag('js', new Date()); gtag('config', 'UA-67252968-1');
+        </script>
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: getArticlesJSONLD(allArticles) }}
         />
