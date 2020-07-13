@@ -61,6 +61,7 @@ export function getArticlesJSONLD(
   const organization: SchemaPerson = {
     ...person,
     url: "https://www.cesarwilliam.com",
+    "@context": "http://schema.org",
   };
 
   return {
@@ -70,6 +71,7 @@ export function getArticlesJSONLD(
 }
 
 interface SchemaPerson {
+  "@context"?: string;
   "@type": string;
   email: string;
   name: string;
