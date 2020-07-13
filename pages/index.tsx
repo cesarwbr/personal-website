@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Head from "next/head";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer";
@@ -20,6 +21,10 @@ type Props = {
 };
 
 export default function Home({ allArticles }: Props) {
+  const { articlesJSONLD, organizationJSONLD } = useMemo(() => {
+    return getArticlesJSONLD(allArticles);
+  }, [allArticles]);
+
   return (
     <div className="container">
       <Head>
@@ -35,7 +40,11 @@ export default function Home({ allArticles }: Props) {
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: getArticlesJSONLD(allArticles) }}
+          dangerouslySetInnerHTML={{ __html: organizationJSONLD }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: articlesJSONLD }}
         />
       </Head>
 
