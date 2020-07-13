@@ -1,6 +1,9 @@
 import { Article } from "../lib/articles";
 
 export function getArticlesJSONLD(articles: Article[]): string {
+  const personImageURL =
+    "https://cdn-images-1.medium.com/fit/c/150/150/1*Asz3If7oQLXgt4cEM7UnFA.jpeg";
+
   const person = {
     "@type": "Person",
     email: "cesarwbr@gmail.com",
@@ -9,7 +12,7 @@ export function getArticlesJSONLD(articles: Article[]): string {
     gender: "male",
     givenName: "Cesar",
     jobTitle: "Software Engineer",
-    image: "https://cesarwilliam.com/images/photo.png",
+    image: personImageURL,
   };
 
   const articlesFormatted = {
@@ -26,10 +29,10 @@ export function getArticlesJSONLD(articles: Article[]): string {
           "@type": "Organization",
           email: "cesarwbr@gmail.com",
           name: "Cesar William Alvarenga",
-          image: "https://cesarwilliam.com/images/photo.png",
+          image: personImageURL,
           logo: {
             "@type": "ImageObject",
-            url: `https://cesarwilliam.com/images/photo.png`,
+            url: personImageURL,
             width: 150,
             height: 150,
           },
