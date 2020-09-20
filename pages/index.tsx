@@ -25,15 +25,67 @@ export default function Home({ allArticles }: Props) {
     return getArticlesJSONLD(allArticles);
   }, [allArticles]);
 
+  const title = "Cesar William Alvarenga";
+  const description =
+    "Hey, I'm Cesar. I'm a software engineer, builder, and occasional writer.";
+  const image =
+    "https://s.gravatar.com/avatar/a18e1d0e81914e7a108ef59e5e4a8bc3?s=1200";
+
   return (
     <div className="container">
       <Head>
-        <title>Cesar William</title>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        ></link>
+        <meta name="description" content={description} />
+        <meta name="image" content={image} />
+        <meta name="robots" content="index,follow"></meta>
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta data-react-helmet="true" property="og:type" content="website" />
         <meta
-          name="description"
-          content="Hey, I'm Cesar. I'm a software engineer, builder, and writer."
+          data-react-helmet="true"
+          property="og:site_name"
+          content={title}
         />
+        <meta
+          data-react-helmet="true"
+          property="og:url"
+          content="https://www.cesarwilliam.com"
+        />
+        <meta data-react-helmet="true" property="og:image" content={image} />
+        <meta data-react-helmet="true" name="twitter:title" content={title} />
+        <meta data-react-helmet="true" name="twitter:card" content="summary" />
+        <meta
+          data-react-helmet="true"
+          name="twitter:description"
+          content={description}
+        />
+        <meta
+          data-react-helmet="true"
+          name="twitter:site"
+          content="@cesarwbr"
+        />
+        <meta
+          data-react-helmet="true"
+          name="twitter:creator"
+          content="@cesarwbr"
+        />
+        <meta
+          data-react-helmet="true"
+          name="twitter:image:src"
+          content={image}
+        />
+        <meta
+          data-react-helmet="true"
+          name="msapplication-TileColor"
+          content="#da532c"
+        />
+        <meta data-react-helmet="true" name="theme-color" content="#ffffff" />
         <meta
           name="google-site-verification"
           content="mcFqnSQfhKdWTQcZXzvRaGngL-vBw4w9HBAphsVeBPo"

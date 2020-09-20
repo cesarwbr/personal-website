@@ -59,9 +59,15 @@ export function getArticlesJSONLD(
   };
 
   const organization: SchemaPerson = {
+    "@context": "http://schema.org",
     ...person,
     url: "https://www.cesarwilliam.com",
-    "@context": "http://schema.org",
+    sameAs: [
+      "https://twitter.com/cesarwbr",
+      "https://github.com/cesarwbr",
+      "https://dev.to/cesarwbr",
+      "www.linkedin.com/in/cesarwalvarenga",
+    ],
   };
 
   return {
@@ -81,6 +87,7 @@ interface SchemaPerson {
   jobTitle: string;
   image: string;
   url?: string;
+  sameAs?: string[];
 }
 
 interface SchemaArticles {
