@@ -182,12 +182,12 @@ export default function Home({ allArticles }: Props) {
         }
 
         [data-theme="dark"] {
-          --main-bg-color: #161d34;
+          --main-bg-color: #121212;
           --main-primary-color: #f4f4f6;
           --main-secondary-color: #8999b0;
           --article-primary-color: #f3f3f5;
           --article-secondary-color: #a5a8b4;
-          --article-bg-color: #212b4e;
+          --article-bg-color: #242424;
           --footer-color: #8b8e9a;
         }
         html,

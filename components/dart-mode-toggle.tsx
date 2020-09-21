@@ -21,7 +21,7 @@ export default function DarkModeToggle({ darkMode, switchTheme }: Props) {
           width: 60px;
           height: 30px;
           border-radius: 100px;
-          background-color: #000839;
+          background-color: #222222;
           overflow: hidden;
           cursor: pointer;
         }
@@ -44,7 +44,7 @@ export default function DarkModeToggle({ darkMode, switchTheme }: Props) {
         }
 
         .toggleLabel:after {
-          background-color: #000839;
+          background-color: #222222;
           left: -4px;
           transform: scale(0.00001);
         }
