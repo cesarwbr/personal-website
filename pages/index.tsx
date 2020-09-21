@@ -18,6 +18,7 @@ export async function getServerSideProps(context) {
 
 function prefersDarkMode() {
   return (
+    typeof window !== "undefined" &&
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches
   );
