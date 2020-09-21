@@ -16,6 +16,13 @@ export async function getServerSideProps(context) {
   };
 }
 
+function prefersDarkMode() {
+  return (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
+}
+
 type Props = {
   allArticles: Article[];
 };
@@ -25,7 +32,7 @@ export default function Home({ allArticles }: Props) {
     return getArticlesJSONLD(allArticles);
   }, [allArticles]);
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(prefersDarkMode());
 
   function switchTheme(e: SyntheticEvent) {
     e.stopPropagation();
