@@ -1,4 +1,4 @@
-import { SyntheticEvent, useMemo, useRef, useState } from "react";
+import { SyntheticEvent, useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer";
@@ -34,6 +34,14 @@ export default function Home({ allArticles }: Props) {
   }, [allArticles]);
 
   const [darkMode, setDarkMode] = useState(prefersDarkMode());
+
+  useEffect(() => {
+    if (prefersDarkMode()) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  }, []);
 
   function switchTheme(e: SyntheticEvent) {
     e.stopPropagation();
