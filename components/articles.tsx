@@ -45,7 +45,7 @@ export default function Articles({ allArticles }: Props) {
 
         .title {
           font-size: 24px;
-          color: black;
+          color: var(--main-primary-color);
           margin-bottom: 24px;
           margin-top: 0;
         }
@@ -101,10 +101,11 @@ export default function Articles({ allArticles }: Props) {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+          background: var(--article-bg-color);
         }
 
         .article--info--title {
-          color: #111;
+          color: var(--article-primary-color);
           font-size: 24px;
           font-weight: 600;
           letter-spacing: -0.5px;
@@ -113,7 +114,7 @@ export default function Articles({ allArticles }: Props) {
         }
 
         .article--info--date {
-          color: #999;
+          color: var(--article-secondary-color);
           font-size: 12px;
           line-height: 1;
           margin: 6px 0px 0px;

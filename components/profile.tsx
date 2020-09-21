@@ -39,11 +39,11 @@ export default function Profile() {
           margin-left: 30px;
           line-height: 2.7rem;
           font-weight: 700;
-          color: rgb(113, 128, 150);
+          color: var(--main-secondary-color);
         }
 
         .profile--description--hero {
-          color: black;
+          color: var(--main-primary-color);
         }
       `}</style>
     </div>

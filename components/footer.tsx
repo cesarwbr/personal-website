@@ -124,7 +124,7 @@ export default function Footer() {
           text-decoration: none;
           flex-shirink: 0;
           font-weight: 600;
-          color: rgb(95, 101, 109);
+          color: var(--footer-color);
           letter-spacing: 0.05em;
         }
 
@@ -135,7 +135,7 @@ export default function Footer() {
         .social-media--item {
           box-shadow: none;
           margin-left: 1.1rem;
-          color: rgb(95, 101, 109);
+          color: var(--footer-color);
         }
 
         .social-media--item:hover {

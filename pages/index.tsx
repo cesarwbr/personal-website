@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { SyntheticEvent, useMemo, useRef, useState } from "react";
 import Head from "next/head";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer";
@@ -24,6 +24,19 @@ export default function Home({ allArticles }: Props) {
   const { articlesJSONLD, organizationJSONLD } = useMemo(() => {
     return getArticlesJSONLD(allArticles);
   }, [allArticles]);
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  function switchTheme(e: SyntheticEvent) {
+    e.stopPropagation();
+    if (!darkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
+      setDarkMode(true);
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      setDarkMode(false);
+    }
+  }
 
   const title = "Cesar William Alvarenga";
   const description =
@@ -100,7 +113,7 @@ export default function Home({ allArticles }: Props) {
         />
       </Head>
 
-      <Header />
+      <Header darkMode={darkMode} switchTheme={switchTheme} />
 
       <main>
         <Profile />
@@ -158,12 +171,33 @@ export default function Home({ allArticles }: Props) {
       `}</style>
 
       <style jsx global>{`
+        :root {
+          --main-bg-color: white;
+          --main-primary-color: black;
+          --main-secondary-color: rgb(113, 128, 150);
+          --article-primary-color: #111;
+          --article-secondary-color: #999;
+          --article-bg-color: white;
+          --footer-color: rgb(95, 101, 109);
+        }
+
+        [data-theme="dark"] {
+          --main-bg-color: #161d34;
+          --main-primary-color: #f4f4f6;
+          --main-secondary-color: #8999b0;
+          --article-primary-color: #f3f3f5;
+          --article-secondary-color: #a5a8b4;
+          --article-bg-color: #212b4e;
+          --footer-color: #8b8e9a;
+        }
         html,
         body {
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+          background: var(--main-bg-color);
+          transition: background 0.5s;
         }
 
         * {
