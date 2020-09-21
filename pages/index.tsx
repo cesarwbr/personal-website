@@ -18,7 +18,7 @@ export async function getServerSideProps(context) {
 
 function prefersDarkMode() {
   if (typeof window === "undefined") {
-    return false;
+    return true;
   }
 
   const darkMode =
