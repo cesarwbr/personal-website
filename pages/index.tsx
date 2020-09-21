@@ -17,11 +17,21 @@ export async function getServerSideProps(context) {
 }
 
 function prefersDarkMode() {
-  return (
-    typeof window !== "undefined" &&
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const darkMode =
     window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (darkMode) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+
+  return darkMode;
 }
 
 type Props = {
@@ -33,24 +43,17 @@ export default function Home({ allArticles }: Props) {
     return getArticlesJSONLD(allArticles);
   }, [allArticles]);
 
-  const [darkMode, setDarkMode] = useState(prefersDarkMode());
-
-  useEffect(() => {
-    if (prefersDarkMode()) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-    }
-  }, []);
+  const [darkMode, setDarkMode] = useState(() => prefersDarkMode());
 
   function switchTheme(e: SyntheticEvent) {
     e.stopPropagation();
+
+    setDarkMode((darkMode) => !darkMode);
+
     if (!darkMode) {
       document.documentElement.setAttribute("data-theme", "dark");
-      setDarkMode(true);
     } else {
       document.documentElement.setAttribute("data-theme", "light");
-      setDarkMode(false);
     }
   }
 
@@ -206,6 +209,7 @@ export default function Home({ allArticles }: Props) {
           --article-bg-color: #242424;
           --footer-color: #8b8e9a;
         }
+
         html,
         body {
           margin: 0;

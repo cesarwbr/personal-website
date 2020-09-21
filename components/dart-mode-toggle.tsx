@@ -10,8 +10,8 @@ export default function DarkModeToggle({ darkMode, switchTheme }: Props) {
         type="checkbox"
         id="toggle"
         className="toggleInput"
-        checked={darkMode}
-        onChange={switchTheme}
+        defaultChecked={darkMode}
+        onClick={switchTheme}
       />
       <label htmlFor="toggle" className="toggleLabel"></label>
       <style jsx>{`
