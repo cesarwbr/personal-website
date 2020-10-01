@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect, useMemo, useState } from "react";
+import { SyntheticEvent, useMemo, useState } from "react";
 import Head from "next/head";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer";
@@ -6,15 +6,16 @@ import Header from "../components/header";
 import Profile from "../components/profile";
 import Articles from "../components/articles";
 import { getArticlesJSONLD } from "../utils/jsonld";
+import { GetServerSideProps } from "next";
 
-export async function getStaticProps() {
+export const getServerSideProps: GetServerSideProps = async () => {
   const allArticles = await getAllArticles();
   return {
     props: {
       allArticles,
     },
   };
-}
+};
 
 function prefersDarkMode() {
   if (typeof window === "undefined") {
@@ -24,12 +25,6 @@ function prefersDarkMode() {
   const darkMode =
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (darkMode) {
-    document.documentElement.setAttribute("data-theme", "dark");
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-  }
 
   return darkMode;
 }
@@ -130,6 +125,7 @@ export default function Home({ allArticles }: Props) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: articlesJSONLD }}
         />
+        <script src="/static/theme.js"></script>
       </Head>
 
       <Header darkMode={darkMode} switchTheme={switchTheme} />
