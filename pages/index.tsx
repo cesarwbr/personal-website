@@ -7,7 +7,7 @@ import Profile from "../components/profile";
 import Articles from "../components/articles";
 import { getArticlesJSONLD } from "../utils/jsonld";
 
-export async function getServerSideProps(context) {
+export async function getStaticProps() {
   const allArticles = await getAllArticles();
   return {
     props: {
