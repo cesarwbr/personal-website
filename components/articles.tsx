@@ -25,6 +25,7 @@ export default function Articles({ allArticles }: Props) {
           >
             <div className="article--image">
               <Image
+                alt={article.title}
                 src={article.thumbnail}
                 unsized
                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 420px, 1024px"
