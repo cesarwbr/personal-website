@@ -24,7 +24,11 @@ export default function Articles({ allArticles }: Props) {
             className="article"
           >
             <div className="article--image">
-              <Image src={article.thumbnail} unsized />
+              <Image
+                src={article.thumbnail}
+                unsized
+                sizes="(max-width: 600px) 100vw, (max-width: 1024px) 420px, 1024px"
+              />
             </div>
             <div className="article--info">
               <h3 className="article--info--title">{article.title}</h3>

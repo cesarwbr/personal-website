@@ -1,8 +1,17 @@
+import Image from "next/image";
+
 export default function Profile() {
   return (
     <div className="profile">
       <div className="photo-container">
-        <img src="/images/photo.png" alt="Cesar" className="photo" />
+        <Image
+          width="142"
+          height="142"
+          src="/images/photo.png"
+          alt="Cesar"
+          className="photo"
+          quality="100"
+        />
       </div>
       <h1 className="profile--description">
         <span className="profile--description--hero">Hey, I'm Cesar.</span> I'm
