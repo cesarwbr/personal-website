@@ -1,3 +1,4 @@
+import Image from "next/image";
 import dayjs from "dayjs";
 
 import { Article } from "../lib/articles";
@@ -22,12 +23,9 @@ export default function Articles({ allArticles }: Props) {
             key={article.title}
             className="article"
           >
-            <div
-              className="article--image"
-              style={{
-                background: `url(${article.thumbnail}) center center / cover`,
-              }}
-            />
+            <div className="article--image">
+              <Image src={article.thumbnail} unsized />
+            </div>
             <div className="article--info">
               <h3 className="article--info--title">{article.title}</h3>
               <p className="article--info--date">
@@ -130,7 +128,6 @@ export default function Articles({ allArticles }: Props) {
         }
 
         .article--image {
-          object-fit: cover;
           height: 280px;
           width: 100%;
         }
