@@ -3,13 +3,14 @@ import Head from "next/head";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer";
 import Header from "../components/header";
+import { GetServerSideProps } from "next";
 import Profile from "../components/profile";
 import Articles from "../components/articles";
+import CurrentlyPlayingSong from "../components/currently-playing";
 import { getArticlesJSONLD } from "../utils/jsonld";
-import { GetServerSideProps } from "next";
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const allArticles = await getAllArticles();
+  const [allArticles] = await Promise.all([getAllArticles()]);
   return {
     props: {
       allArticles,
@@ -136,6 +137,8 @@ export default function Home({ allArticles }: Props) {
         <Articles allArticles={allArticles} />
       </main>
 
+      <CurrentlyPlayingSong />
+
       <Footer />
 
       <style jsx>{`
@@ -194,6 +197,8 @@ export default function Home({ allArticles }: Props) {
           --article-secondary-color: #999;
           --article-bg-color: white;
           --footer-color: rgb(95, 101, 109);
+          --light-border-color: #e2e8f0;
+          --white-border: rgb(255, 255, 255);
         }
 
         [data-theme="dark"] {
@@ -204,6 +209,8 @@ export default function Home({ allArticles }: Props) {
           --article-secondary-color: #a5a8b4;
           --article-bg-color: #242424;
           --footer-color: #8b8e9a;
+          --light-border-color: #67696f;
+          --white-border: rgba(255, 255, 255, 0.8);
         }
 
         html,
