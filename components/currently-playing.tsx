@@ -65,6 +65,7 @@ export default function CurrentlyPlayingSong() {
                 ? currentlyPlaying?.album.image
                 : "/images/vinyl.jpg"
             }
+            loading="eager"
           />
         </div>
         <div className="currenlty-playing--album--circle" />
