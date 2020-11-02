@@ -8,6 +8,10 @@ export async function getAllArticles(): Promise<Article[]> {
 
   const items = payload.items;
 
+  if (!payload?.items) {
+    return [];
+  }
+
   return items
     .filter((item) => item.thumbnail.includes("cdn-images"))
     .map((item) => ({

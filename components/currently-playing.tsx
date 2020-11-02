@@ -1,6 +1,7 @@
 import Image from "next/image";
 import useSWR from "swr";
 import fetch from "isomorphic-unfetch";
+import { MouseEvent } from "react";
 
 export interface CurrentlyPlaying {
   album?: {
@@ -49,8 +50,21 @@ export default function CurrentlyPlayingSong() {
     fetcher
   );
 
+  function handleClick(event: MouseEvent) {
+    if (!currentlyPlaying?.isPlaying) {
+      event.preventDefault();
+    }
+  }
+
   return (
-    <div className="currenlty-playing">
+    <a
+      href={currentlyPlaying?.isPlaying ? currentlyPlaying?.url : ""}
+      onClick={handleClick}
+      target="_blank"
+      className={`currenlty-playing${
+        currentlyPlaying?.isPlaying ? " clickable" : ""
+      }`}
+    >
       <div
         className={`currenlty-playing--album ${
           currentlyPlaying?.isPlaying ? "currenlty-playing--album_animated" : ""
@@ -66,6 +80,11 @@ export default function CurrentlyPlayingSong() {
                 : "/images/vinyl.jpg"
             }
             loading="eager"
+            alt={
+              currentlyPlaying?.isPlaying
+                ? currentlyPlaying?.album?.name
+                : "Not Playing"
+            }
           />
         </div>
         <div className="currenlty-playing--album--circle" />
@@ -78,7 +97,12 @@ export default function CurrentlyPlayingSong() {
           {currentlyPlaying?.isPlaying ? currentlyPlaying.artist : "Spotify"}
         </div>
       </div>
-      <Image src="/images/spotify.png" width="41" height="30" />
+      <Image
+        src="/images/spotify.png"
+        width="41"
+        height="30"
+        alt="Spotify Logo"
+      />
       <style jsx>{`
         .currenlty-playing {
           display: flex;
@@ -90,6 +114,8 @@ export default function CurrentlyPlayingSong() {
           border-radius: 40px;
           height: 75px;
           margin-bottom: 50px;
+          cursor: default;
+          text-decoration: none;
         }
 
         .currenlty-playing--album {
@@ -181,6 +207,10 @@ export default function CurrentlyPlayingSong() {
           color: var(--article-secondary-color);
         }
 
+        .clickable {
+          cursor: pointer;
+        }
+
         @keyframes rotate-center {
           0% {
             transform: rotate(0);
@@ -190,6 +220,6 @@ export default function CurrentlyPlayingSong() {
           }
         }
       `}</style>
-    </div>
+    </a>
   );
 }
