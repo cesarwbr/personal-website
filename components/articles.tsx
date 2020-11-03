@@ -19,7 +19,8 @@ export default function Articles({ allArticles }: Props) {
         {allArticles.map((article) => (
           <a
             href={article.link}
-            target="__blank"
+            target="_blank"
+            rel="noreferrer"
             key={article.title}
             className="article"
           >

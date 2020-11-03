@@ -104,7 +104,7 @@ export default function Footer() {
             key={socialMedia.link}
             href={socialMedia.link}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             className="social-media--item"
           >
             {socialMedia.icon}
