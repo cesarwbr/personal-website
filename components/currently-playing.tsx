@@ -61,6 +61,7 @@ export default function CurrentlyPlayingSong() {
       href={currentlyPlaying?.isPlaying ? currentlyPlaying?.url : ""}
       onClick={handleClick}
       target="_blank"
+      rel="noopener"
       className={`currenlty-playing${
         currentlyPlaying?.isPlaying ? " clickable" : ""
       }`}
