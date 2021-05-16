@@ -28,10 +28,12 @@ export default function Articles({ allArticles }: Props) {
               <Image
                 alt={article.title}
                 src={article.thumbnail}
-                layout="intrinsic"
-                width={index !== 0 ? 386 : 793}
-                height={280}
-                sizes="(max-width: 600px) 100vw, (max-width: 1024px) 420px, 1024px"
+                layout="fill"
+                // width={index !== 0 ? 386 : 793}
+                // height={280}
+                sizes={`(max-width: 768px) 340px, (max-width: 1024px) 340px, ${
+                  index !== 0 ? "340px" : "800px"
+                }`}
               />
             </div>
             <div className="article--info">
@@ -138,6 +140,7 @@ export default function Articles({ allArticles }: Props) {
         .article--image {
           height: 280px;
           width: 100%;
+          position: relative;
         }
       `}</style>
     </div>

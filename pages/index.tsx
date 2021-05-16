@@ -229,8 +229,6 @@ export default function Home({ allArticles }: Props) {
 
         .article--image img {
           object-fit: cover;
-          width: 100%;
-          height: 280px;
         }
       `}</style>
     </div>
