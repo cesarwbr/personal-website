@@ -1,10 +1,4 @@
-import {
-  SyntheticEvent,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { useMemo } from "react";
 import Head from "next/head";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer";
@@ -14,7 +8,6 @@ import Profile from "../components/profile";
 import Articles from "../components/articles";
 import CurrentlyPlayingSong from "../components/currently-playing";
 import { getArticlesJSONLD } from "../utils/jsonld";
-import useTheme from "../hooks/useTheme";
 
 export const getStaticProps: GetStaticProps = async () => {
   const [allArticles] = await Promise.all([getAllArticles()]);
@@ -107,7 +100,6 @@ export default function Home({ allArticles }: Props) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: articlesJSONLD }}
         />
-        <script src="/static/theme.js"></script>
       </Head>
 
       <Header />
@@ -173,13 +165,14 @@ export default function Home({ allArticles }: Props) {
         :root {
           --main-bg-color: white;
           --main-primary-color: black;
-          --main-secondary-color: rgb(113, 128, 150);
+          --main-secondary-color: #757575;
           --article-primary-color: #111;
-          --article-secondary-color: #999;
+          --article-secondary-color: #757575;
           --article-bg-color: white;
           --footer-color: rgb(95, 101, 109);
           --light-border-color: #e2e8f0;
           --white-border: rgb(255, 255, 255);
+          --highlight-color: #ffc107;
         }
 
         [data-theme="dark"] {
@@ -192,6 +185,7 @@ export default function Home({ allArticles }: Props) {
           --footer-color: #8b8e9a;
           --light-border-color: #67696f;
           --white-border: rgba(255, 255, 255, 0.8);
+          --highlight-color: #ffc107;
         }
 
         html,

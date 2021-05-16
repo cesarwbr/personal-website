@@ -42,7 +42,7 @@ export default function DarkModeToggle() {
         }
         .toggleContainer:focus {
           outline: none;
-          border-color: var(--main-primary-color);
+          border-color: var(--highlight-color);
         }
         .toggleLabel {
           position: relative;

@@ -22,6 +22,7 @@ export default function Articles({ allArticles }: Props) {
             target="_blank"
             key={article.title}
             className="article"
+            rel="noreferrer"
           >
             <div className="article--image">
               <Image
@@ -29,7 +30,7 @@ export default function Articles({ allArticles }: Props) {
                 src={article.thumbnail}
                 layout="fill"
                 sizes={`(max-width: 768px) 340px, (max-width: 1024px) 340px, ${
-                  index !== 0 ? "340px" : "800px"
+                  index !== 0 ? "400px" : "800px"
                 }`}
               />
             </div>
@@ -89,7 +90,8 @@ export default function Articles({ allArticles }: Props) {
         }
 
         .article:focus {
-          border: 3px solid var(--main-primary-color);
+          border: 3px solid var(--highlight-color);
+          outline: none;
         }
 
         @media screen and (min-width: 1024px) {
