@@ -11,8 +11,6 @@ export default function DarkModeToggle() {
     }
   }
 
-  console.log({ darkMode });
-
   return (
     <div
       tabIndex={0}
