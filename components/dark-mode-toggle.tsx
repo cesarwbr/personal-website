@@ -1,20 +1,51 @@
-type Props = {
-  darkMode: boolean;
-  switchTheme: () => void;
-};
+import { KeyboardEvent } from "react";
+import useTheme from "../hooks/useTheme";
 
-export default function DarkModeToggle({ darkMode, switchTheme }: Props) {
+export default function DarkModeToggle() {
+  const [darkMode, switchTheme] = useTheme();
+
+  function handleToggleButtonKeydown(event: KeyboardEvent) {
+    if (event.keyCode === 32 || event.keyCode === 13) {
+      event.preventDefault();
+      switchTheme(event);
+    }
+  }
+
+  console.log({ darkMode });
+
   return (
-    <div>
+    <div
+      tabIndex={0}
+      className="toggleContainer"
+      role="button"
+      onKeyDown={handleToggleButtonKeydown}
+      aria-pressed={darkMode}
+      aria-label="Dark mode"
+    >
       <input
         type="checkbox"
         id="toggle"
         className="toggleInput"
-        defaultChecked={darkMode}
-        onClick={switchTheme}
+        checked={darkMode}
+        onChange={switchTheme}
       />
-      <label htmlFor="toggle" className="toggleLabel"></label>
+      <label
+        htmlFor="toggle"
+        className="toggleLabel"
+        aria-label="Dark mode"
+        aria-hidden={true}
+      ></label>
       <style jsx>{`
+        .toggleContainer {
+          outline: none;
+          border: 3px solid transparent;
+          border-radius: 100px;
+          padding: 2px;
+        }
+        .toggleContainer:focus {
+          outline: none;
+          border-color: var(--main-primary-color);
+        }
         .toggleLabel {
           position: relative;
           display: block;

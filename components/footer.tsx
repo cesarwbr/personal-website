@@ -1,13 +1,16 @@
 import Link from "next/link";
+import { ReactElement } from "react";
 
 interface SocialMedia {
   link: string;
-  icon: Object;
+  icon: ReactElement<SVGAElement>;
+  label: string;
 }
 
 export default function Footer() {
   const socialMedias: SocialMedia[] = [
     {
+      label: "Twitter",
       link: "https://twitter.com/cesarwbr",
       icon: (
         <svg
@@ -25,6 +28,7 @@ export default function Footer() {
       ),
     },
     {
+      label: "LinkedIn",
       link: "https://www.linkedin.com/in/cesarwalvarenga/",
       icon: (
         <svg
@@ -42,6 +46,7 @@ export default function Footer() {
       ),
     },
     {
+      label: "Medium",
       link: "https://medium.com/@cesarwilliam",
       icon: (
         <svg
@@ -59,6 +64,7 @@ export default function Footer() {
       ),
     },
     {
+      label: "Dev",
       link: "https://dev.to/cesarwbr",
       icon: (
         <svg
@@ -75,6 +81,7 @@ export default function Footer() {
       ),
     },
     {
+      label: "Github",
       link: "https://github.com/cesarwbr",
       icon: (
         <svg
@@ -106,6 +113,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener"
             className="social-media--item"
+            aria-label={socialMedia.label}
           >
             {socialMedia.icon}
           </a>

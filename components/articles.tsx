@@ -20,7 +20,6 @@ export default function Articles({ allArticles }: Props) {
           <a
             href={article.link}
             target="_blank"
-            rel="noreferrer"
             key={article.title}
             className="article"
           >
@@ -29,8 +28,6 @@ export default function Articles({ allArticles }: Props) {
                 alt={article.title}
                 src={article.thumbnail}
                 layout="fill"
-                // width={index !== 0 ? 386 : 793}
-                // height={280}
                 sizes={`(max-width: 768px) 340px, (max-width: 1024px) 340px, ${
                   index !== 0 ? "340px" : "800px"
                 }`}
@@ -89,6 +86,10 @@ export default function Articles({ allArticles }: Props) {
           display: flex;
           flex-direction: column;
           transition: box-shadow 0.2s ease 0s, transform 0.2s ease 0s;
+        }
+
+        .article:focus {
+          border: 3px solid var(--main-primary-color);
         }
 
         @media screen and (min-width: 1024px) {

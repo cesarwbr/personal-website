@@ -1,4 +1,10 @@
-import { SyntheticEvent, useMemo, useState } from "react";
+import {
+  SyntheticEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import Head from "next/head";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer";
@@ -8,6 +14,7 @@ import Profile from "../components/profile";
 import Articles from "../components/articles";
 import CurrentlyPlayingSong from "../components/currently-playing";
 import { getArticlesJSONLD } from "../utils/jsonld";
+import useTheme from "../hooks/useTheme";
 
 export const getStaticProps: GetStaticProps = async () => {
   const [allArticles] = await Promise.all([getAllArticles()]);
@@ -18,18 +25,6 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-function prefersDarkMode() {
-  if (typeof window === "undefined") {
-    return false;
-  }
-
-  const darkMode =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  return darkMode;
-}
-
 type Props = {
   allArticles: Article[];
 };
@@ -38,20 +33,6 @@ export default function Home({ allArticles }: Props) {
   const { articlesJSONLD, organizationJSONLD } = useMemo(() => {
     return getArticlesJSONLD(allArticles);
   }, [allArticles]);
-
-  const [darkMode, setDarkMode] = useState(() => prefersDarkMode());
-
-  function switchTheme(e: SyntheticEvent) {
-    e.stopPropagation();
-
-    setDarkMode((darkMode) => !darkMode);
-
-    if (!darkMode) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-    }
-  }
 
   const title = "Cesar William Alvarenga";
   const description =
@@ -129,7 +110,7 @@ export default function Home({ allArticles }: Props) {
         <script src="/static/theme.js"></script>
       </Head>
 
-      <Header darkMode={darkMode} switchTheme={switchTheme} />
+      <Header />
 
       <main>
         <Profile />

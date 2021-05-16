@@ -1,18 +1,14 @@
 import Link from "next/link";
-import DarkModeToggle from "./dart-mode-toggle";
+import DarkModeToggle from "./dark-mode-toggle";
 
-type Props = {
-  darkMode: boolean;
-  switchTheme: () => void;
-};
-export default function Header({ darkMode, switchTheme }) {
+export default function Header() {
   return (
     <header>
       <Link href="/">
         <a className="name">Cesar William</a>
       </Link>
 
-      <DarkModeToggle darkMode={darkMode} switchTheme={switchTheme} />
+      <DarkModeToggle />
 
       <style jsx>{`
         header {
@@ -28,6 +24,8 @@ export default function Header({ darkMode, switchTheme }) {
           letter-spacing: 0.1rem;
           text-transform: uppercase;
           color: var(--main-primary-color);
+          display: flex;
+          align-items: center;
         }
 
         a {
