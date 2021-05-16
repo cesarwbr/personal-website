@@ -16,7 +16,7 @@ export default function Articles({ allArticles }: Props) {
     <div className="articles--container">
       <h2 className="title">Recent Posts</h2>
       <div className="articles">
-        {allArticles.map((article) => (
+        {allArticles.map((article, index) => (
           <a
             href={article.link}
             target="_blank"
@@ -28,7 +28,9 @@ export default function Articles({ allArticles }: Props) {
               <Image
                 alt={article.title}
                 src={article.thumbnail}
-                unsized
+                layout="intrinsic"
+                width={index !== 0 ? 386 : 793}
+                height={280}
                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 420px, 1024px"
               />
             </div>

@@ -3,13 +3,13 @@ import Head from "next/head";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer";
 import Header from "../components/header";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import Profile from "../components/profile";
 import Articles from "../components/articles";
 import CurrentlyPlayingSong from "../components/currently-playing";
 import { getArticlesJSONLD } from "../utils/jsonld";
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const [allArticles] = await Promise.all([getAllArticles()]);
   return {
     props: {
