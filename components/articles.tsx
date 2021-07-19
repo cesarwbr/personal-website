@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default function Articles({ allArticles }: Props) {
-  function formatPubDate(pubDate: string) {
+  function formatPubDate(pubDate: string | Date) {
     return dayjs(pubDate).format("MMMM DD, YYYY");
   }
 

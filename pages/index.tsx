@@ -10,7 +10,7 @@ import CurrentlyPlayingSong from "../components/currently-playing";
 import { getArticlesJSONLD } from "../utils/jsonld";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const [allArticles] = await Promise.all([getAllArticles()]);
+  const allArticles = await getAllArticles();
   return {
     props: {
       allArticles,
