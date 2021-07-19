@@ -1,8 +1,10 @@
+import dayjs from "dayjs";
 import { Article } from "../lib/articles";
 
-export function getArticlesJSONLD(
-  articles: Article[]
-): { organizationJSONLD: string; articlesJSONLD: string } {
+export function getArticlesJSONLD(articles: Article[]): {
+  organizationJSONLD: string;
+  articlesJSONLD: string;
+} {
   const personImageURL =
     "https://cdn-images-1.medium.com/fit/c/150/150/1*Asz3If7oQLXgt4cEM7UnFA.jpeg";
 
@@ -21,41 +23,39 @@ export function getArticlesJSONLD(
     "@context": "http://schema.org",
     "@type": "ItemList",
     numberOfItems: articles.length,
-    itemListElement: articles.map(
-      (article, index): SchemaArticle => {
-        return {
-          "@type": "TechArticle",
-          accountablePerson: person,
-          author: person,
-          editor: person,
-          publisher: {
-            "@type": "Organization",
-            email: "cesarwbr@gmail.com",
-            name: "Cesar William Alvarenga",
-            image: personImageURL,
-            logo: {
-              "@type": "ImageObject",
-              url: personImageURL,
-              width: 150,
-              height: 150,
-            },
+    itemListElement: articles.map((article, index): SchemaArticle => {
+      return {
+        "@type": "TechArticle",
+        accountablePerson: person,
+        author: person,
+        editor: person,
+        publisher: {
+          "@type": "Organization",
+          email: "cesarwbr@gmail.com",
+          name: "Cesar William Alvarenga",
+          image: personImageURL,
+          logo: {
+            "@type": "ImageObject",
+            url: personImageURL,
+            width: 150,
+            height: 150,
           },
-          thumbnailUrl: article.thumbnail,
-          articleBody: article.description,
-          url: article.guid,
-          identifier: article.guid,
-          name: article.title,
-          datePublished: article.pubDate,
-          keywords: article.categories.join(","),
-          headline: article.title,
-          image: article.thumbnail,
-          dateModified: article.pubDate,
-          discussionUrl: article.guid,
-          mainEntityOfPage: "https://medium.com",
-          position: index + 1,
-        };
-      }
-    ),
+        },
+        thumbnailUrl: article.thumbnail,
+        articleBody: article.description,
+        url: article.guid,
+        identifier: article.guid,
+        name: article.title,
+        datePublished: dayjs(article.pubDate).format("MMMM DD, YYYY"),
+        keywords: article.categories.join(","),
+        headline: article.title,
+        image: article.thumbnail,
+        dateModified: dayjs(article.pubDate).format("MMMM DD, YYYY"),
+        discussionUrl: article.guid,
+        mainEntityOfPage: "https://medium.com",
+        position: index + 1,
+      };
+    }),
   };
 
   const organization: SchemaPerson = {
