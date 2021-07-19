@@ -1,0 +1,12 @@
+name: 30-minute-cron
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for new articles
+        run: |
+          curl --request GET \
+          --url 'https://cesarwilliam.com/api/verify-articles'
