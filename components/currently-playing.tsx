@@ -14,29 +14,7 @@ export interface CurrentlyPlaying {
   title?: string;
 }
 
-interface CurrentlyPlayingResponse {
-  is_playing: boolean;
-  item: {
-    name: string;
-    artists: {
-      name: string;
-    }[];
-    album: {
-      name: string;
-      images: {
-        height: number;
-        url: string;
-        width: number;
-      }[];
-    };
-    external_urls: {
-      spotify: string;
-    };
-  };
-}
-
-// @ts-ignore
-async function fetcher<JSON = any>(
+async function fetcher<JSON = { data: CurrentlyPlaying }>(
   input: RequestInfo,
   init?: RequestInit
 ): Promise<JSON> {
@@ -47,7 +25,10 @@ async function fetcher<JSON = any>(
 export default function CurrentlyPlayingSong() {
   let { data: currentlyPlaying } = useSWR<CurrentlyPlaying>(
     "/api/currently-playing",
-    fetcher
+    fetcher,
+    {
+      refreshInterval: 10000,
+    }
   );
 
   function handleClick(event: MouseEvent) {
