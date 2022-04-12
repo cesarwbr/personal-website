@@ -180,7 +180,7 @@ export default function Home({ allArticles, allProjects }: Props) {
           --light-border-color: #e2e8f0;
           --white-border: rgb(255, 255, 255);
           --highlight-color: #ffc107;
-          --project-description-color: #999999;
+          --project-description-color: #757575;
           --project-info-icon-color: #a5a8b4;
         }
 
@@ -195,7 +195,7 @@ export default function Home({ allArticles, allProjects }: Props) {
           --light-border-color: #67696f;
           --white-border: rgba(255, 255, 255, 0.8);
           --highlight-color: #ffc107;
-          --project-description-color: #f4f4f6;
+          --project-description-color: #afafaf;
           --project-info-icon-color: #f4f4f6;
         }
 
