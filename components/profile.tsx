@@ -11,6 +11,7 @@ export default function Profile() {
           alt="Cesar"
           className="photo"
           quality="100"
+          sizes="142px"
         />
       </div>
       <h1 className="profile--description">
