@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useCallback, useMemo } from "react";
 import { BiStar, BiGitRepoForked, BiCalendarStar } from "react-icons/bi";
 import { GoStar, GoRepoForked } from "react-icons/go";
 import { Project } from "../lib/projects";
@@ -8,6 +9,12 @@ type Props = {
 };
 
 export default function Projects({ projects }: Props) {
+  const getContributors = useCallback((project: Project) => {
+    const contributors = [...project.contributors].reverse();
+
+    return contributors;
+  }, []);
+
   function getFavicon(url: string) {
     return `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${url}&size=20`;
   }
@@ -62,10 +69,10 @@ export default function Projects({ projects }: Props) {
                   </div>
                 </section>
                 <section className="project--contributors">
-                  {project.contributors.map((contributor, index) => (
+                  {getContributors(project).map((contributor, index) => (
                     <a
                       className="project--contributor"
-                      style={{ right: `${16 * index}px` }}
+                      style={{ right: `${20 * index}px` }}
                       key={contributor.id}
                       href={contributor.html_url}
                       target="_blank"
@@ -76,6 +83,7 @@ export default function Projects({ projects }: Props) {
                         width={26}
                         height={26}
                         alt={contributor.login}
+                        layout="fill"
                       />
                     </a>
                   ))}
@@ -205,12 +213,12 @@ export default function Projects({ projects }: Props) {
         .project--contributor {
           position: absolute;
           border-radius: 50%;
-          width: 26px;
-          height: 26px;
+          width: 32px;
+          height: 32px;
           right: 0;
           top: 0;
           overflow: hidden;
-          border: 2px solid #ffffff;
+          border: 2px solid var(--article-bg-color);
         }
       `}</style>
     </div>
