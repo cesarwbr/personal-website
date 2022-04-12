@@ -39,7 +39,11 @@ export default function CurrentlyPlayingSong() {
 
   return (
     <a
-      href={currentlyPlaying?.isPlaying ? currentlyPlaying?.url : ""}
+      href={
+        currentlyPlaying?.isPlaying
+          ? currentlyPlaying?.url
+          : "https://open.spotify.com/playlist/4Qy0aQbcEkaTCT3RdAR81a?si=c151b6888ade4668"
+      }
       onClick={handleClick}
       target="_blank"
       rel="noopener"
