@@ -8,21 +8,27 @@ import Profile from "../components/profile";
 import Articles from "../components/articles";
 import CurrentlyPlayingSong from "../components/currently-playing";
 import { getArticlesJSONLD } from "../utils/jsonld";
+import Projects from "../components/projects";
+import { getAllPorjects, Project } from "../lib/projects";
 
 export const getStaticProps: GetStaticProps = async () => {
   const allArticles = await getAllArticles();
+  const allProjects = await getAllPorjects();
+
   return {
     props: {
       allArticles,
+      allProjects,
     },
   };
 };
 
 type Props = {
   allArticles: Article[];
+  allProjects: Project[];
 };
 
-export default function Home({ allArticles }: Props) {
+export default function Home({ allArticles, allProjects }: Props) {
   const { articlesJSONLD, organizationJSONLD } = useMemo(() => {
     return getArticlesJSONLD(allArticles);
   }, [allArticles]);
@@ -107,6 +113,7 @@ export default function Home({ allArticles }: Props) {
       <main>
         <Profile />
 
+        <Projects projects={allProjects} />
         <Articles allArticles={allArticles} />
       </main>
 
@@ -173,6 +180,8 @@ export default function Home({ allArticles }: Props) {
           --light-border-color: #e2e8f0;
           --white-border: rgb(255, 255, 255);
           --highlight-color: #ffc107;
+          --project-description-color: #999999;
+          --project-info-icon-color: #a5a8b4;
         }
 
         [data-theme="dark"] {
@@ -186,6 +195,8 @@ export default function Home({ allArticles }: Props) {
           --light-border-color: #67696f;
           --white-border: rgba(255, 255, 255, 0.8);
           --highlight-color: #ffc107;
+          --project-description-color: #f4f4f6;
+          --project-info-icon-color: #f4f4f6;
         }
 
         html,

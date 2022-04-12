@@ -57,7 +57,7 @@ export default function Articles({ allArticles }: Props) {
         }
 
         .articles--container {
-          margin-top: 120px;
+          margin-top: 80px;
         }
 
         .articles {

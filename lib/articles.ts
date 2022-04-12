@@ -29,7 +29,7 @@ export async function fetchLatestArticles(): Promise<Omit<Article, "_id">[]> {
 
   const response = await fetch(baseURL);
   const payload = await response.json();
-  const items = payload.items;
+  const items = payload.items as unknown as Omit<Article, "_id">[];
 
   if (!payload?.items) {
     return [];
@@ -53,7 +53,7 @@ export async function fetchAllDBArticles(): Promise<Article[]> {
   let articlesDb = (await db
     .collection("articles")
     .find({})
-    .toArray()) as Article[];
+    .toArray()) as unknown as Article[];
 
   if (!articlesDb) {
     return [];
