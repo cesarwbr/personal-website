@@ -31,12 +31,6 @@ export default function CurrentlyPlayingSong() {
     }
   );
 
-  function handleClick(event: MouseEvent) {
-    if (!currentlyPlaying?.isPlaying) {
-      event.preventDefault();
-    }
-  }
-
   return (
     <a
       href={
@@ -44,12 +38,9 @@ export default function CurrentlyPlayingSong() {
           ? currentlyPlaying?.url
           : "https://open.spotify.com/playlist/4Qy0aQbcEkaTCT3RdAR81a?si=c151b6888ade4668"
       }
-      onClick={handleClick}
       target="_blank"
       rel="noopener"
-      className={`currenlty-playing${
-        currentlyPlaying?.isPlaying ? " clickable" : ""
-      }`}
+      className="currenlty-playing clickable"
     >
       <div
         className={`currenlty-playing--album ${
