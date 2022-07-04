@@ -38,6 +38,7 @@ export default function Projects({ projects }: Props) {
                   height={20}
                   layout="fixed"
                   alt={project.name}
+                  className={styles["project--image"]}
                 />
                 <h3 className={styles["project--info--title"]}>
                   {project.name}

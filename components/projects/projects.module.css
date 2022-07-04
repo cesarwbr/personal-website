@@ -119,3 +119,7 @@
   overflow: hidden;
   border: 2px solid var(--article-bg-color);
 }
+
+.project--image {
+  border-radius: 50%;
+}
