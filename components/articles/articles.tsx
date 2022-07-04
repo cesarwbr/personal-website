@@ -28,10 +28,11 @@ export default function Articles({ allArticles }: Props) {
               <Image
                 alt={article.title}
                 src={article.thumbnail}
-                layout="responsive"
+                layout="fill"
                 sizes={`(max-width: 768px) 340px, (max-width: 1024px) 340px, ${
                   index !== 0 ? "400px" : "800px"
                 }`}
+                objectFit="cover"
               />
             </div>
             <div className={styles["article--info"]}>
