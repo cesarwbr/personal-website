@@ -30,7 +30,6 @@ export default function DarkModeToggle() {
       className={styles["toggleContainer"]}
       role="button"
       onKeyDown={handleToggleButtonKeydown}
-      aria-pressed={theme === "dark"}
       aria-label="Dark mode"
     >
       <input

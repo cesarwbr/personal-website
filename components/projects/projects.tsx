@@ -25,13 +25,13 @@ export default function Projects({ projects }: Props) {
       <ol className={styles["projects"]}>
         {projects.map((project) => (
           <li key={project.name}>
-            <div className={styles["project"]}>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
-                className={styles["projects--header"]}
-              >
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              className={styles["project"]}
+            >
+              <header className={styles["projects--header"]}>
                 <Image
                   src={getFavicon(project.homepageUrl)}
                   width={20}
@@ -43,7 +43,7 @@ export default function Projects({ projects }: Props) {
                 <h3 className={styles["project--info--title"]}>
                   {project.name}
                 </h3>
-              </a>
+              </header>
               <section className={styles["project--description"]}>
                 {project.description}
               </section>
@@ -73,24 +73,21 @@ export default function Projects({ projects }: Props) {
                 </section>
                 <section className={styles["project--contributors"]}>
                   {getContributors(project).map((contributor, index) => (
-                    <a
+                    <div
                       className={styles["project--contributor"]}
                       style={{ right: `${20 * index}px` }}
                       key={contributor.id}
-                      href={contributor.html_url}
-                      target="_blank"
-                      rel="noreferrer"
                     >
                       <Image
                         src={contributor.avatar_url}
                         alt={contributor.login}
                         layout="fill"
                       />
-                    </a>
+                    </div>
                   ))}
                 </section>
               </footer>
-            </div>
+            </a>
           </li>
         ))}
       </ol>
