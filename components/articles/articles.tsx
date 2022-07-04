@@ -32,7 +32,7 @@ export default function Articles({ allArticles }: Props) {
                 sizes={`(max-width: 768px) 340px, (max-width: 1024px) 340px, ${
                   index !== 0 ? "400px" : "800px"
                 }`}
-                objectFit="cover"
+                objectFit="contain"
               />
             </div>
             <div className={styles["article--info"]}>

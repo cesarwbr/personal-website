@@ -1,15 +1,27 @@
-import { KeyboardEvent } from "react";
-import useTheme from "../../hooks/useTheme";
+import { KeyboardEvent, useEffect } from "react";
+import { useTheme } from "next-themes";
 import styles from "./dark-mode-toggle.module.css";
 
 export default function DarkModeToggle() {
-  const [darkMode, switchTheme] = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (window?.matchMedia?.("(prefers-color-scheme: dark)")?.matches) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }, [setTheme]);
 
   function handleToggleButtonKeydown(event: KeyboardEvent) {
     if (event.keyCode === 32 || event.keyCode === 13) {
       event.preventDefault();
-      switchTheme(event);
+      swithTheme();
     }
+  }
+
+  function swithTheme() {
+    setTheme(theme === "light" ? "dark" : "light");
   }
 
   return (
@@ -18,15 +30,15 @@ export default function DarkModeToggle() {
       className={styles["toggleContainer"]}
       role="button"
       onKeyDown={handleToggleButtonKeydown}
-      aria-pressed={darkMode}
+      aria-pressed={theme === "dark"}
       aria-label="Dark mode"
     >
       <input
         type="checkbox"
         id="toggle"
         className={styles["toggleInput"]}
-        checked={darkMode}
-        onChange={switchTheme}
+        checked={theme === "dark"}
+        onChange={() => swithTheme()}
       />
       <label
         htmlFor="toggle"
