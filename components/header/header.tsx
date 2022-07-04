@@ -1,5 +1,4 @@
 import Link from "next/link";
-import DarkModeToggle from "../dark-mode-toggle/dark-mode-toggle";
 import styles from "./header.module.css";
 
 export default function Header() {

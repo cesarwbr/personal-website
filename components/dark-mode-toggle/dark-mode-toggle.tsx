@@ -1,4 +1,4 @@
-import { KeyboardEvent, useEffect } from "react";
+import { KeyboardEvent } from "react";
 import { useTheme } from "next-themes";
 import styles from "./dark-mode-toggle.module.css";
 

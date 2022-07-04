@@ -1,7 +1,7 @@
 import Image from "next/image";
 import useSWR from "swr";
-import fetch from "isomorphic-unfetch";
 import styles from "./currently-playing.module.css";
+import fetchLib from "../../lib/fetch";
 
 export interface CurrentlyPlaying {
   album?: {
@@ -14,18 +14,10 @@ export interface CurrentlyPlaying {
   title?: string;
 }
 
-async function fetcher<JSON = { data: CurrentlyPlaying }>(
-  input: RequestInfo,
-  init?: RequestInit
-): Promise<JSON> {
-  const res = await fetch(input, init);
-  return res.json();
-}
-
 export default function CurrentlyPlayingSong() {
-  let { data: currentlyPlaying } = useSWR<CurrentlyPlaying>(
+  let { data: currentlyPlaying } = useSWR(
     "/api/currently-playing",
-    fetcher,
+    fetchLib<CurrentlyPlaying>(),
     {
       refreshInterval: 10000,
     }
