@@ -8,8 +8,6 @@ export default function Header() {
       <Link href="/">
         <a className={styles["name"]}>Cesar William</a>
       </Link>
-
-      <DarkModeToggle />
     </header>
   );
 }

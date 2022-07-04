@@ -5,14 +5,6 @@ import styles from "./dark-mode-toggle.module.css";
 export default function DarkModeToggle() {
   const { theme, setTheme } = useTheme();
 
-  useEffect(() => {
-    if (window?.matchMedia?.("(prefers-color-scheme: dark)")?.matches) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }, [setTheme]);
-
   function handleToggleButtonKeydown(event: KeyboardEvent) {
     if (event.keyCode === 32 || event.keyCode === 13) {
       event.preventDefault();
