@@ -28,7 +28,7 @@ export default function Articles({ allArticles }: Props) {
               <Image
                 alt={article.title}
                 src={article.thumbnail}
-                layout="fill"
+                layout="responsive"
                 sizes={`(max-width: 768px) 340px, (max-width: 1024px) 340px, ${
                   index !== 0 ? "400px" : "800px"
                 }`}
