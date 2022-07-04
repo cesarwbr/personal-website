@@ -1,0 +1,121 @@
+.title {
+  color: var(--main-primary-color);
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.projects--container {
+  margin-top: 120px;
+  font-size: 14px;
+}
+
+.projects {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.projects > li {
+  width: 49%;
+}
+
+@media screen and (max-width: 1024px) {
+  .projects > li {
+    width: 100%;
+  }
+}
+
+.project {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 6px 8px 0px,
+    rgba(0, 0, 0, 0.04) 0px 0px 0px 1px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease 0s, transform 0.2s ease 0s;
+  padding: 12px 14px;
+  background: var(--article-bg-color);
+}
+
+.project:focus {
+  border: 3px solid var(--highlight-color);
+  outline: none;
+}
+
+.project:hover {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 12px 0px,
+    rgba(0, 0, 0, 0.04) 0px 0px 0px 1px;
+  transform: translateY(-4px);
+}
+
+.projects--header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.project--info--title {
+  color: var(--article-primary-color);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
+  padding: 0;
+}
+
+.project--description {
+  margin: 14px 0;
+  color: var(--project-description-color);
+  height: 60px;
+}
+
+.projects--footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project--info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.project--info--item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.project--info--main-lang--color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.project--info--label {
+  color: var(--project-description-color);
+}
+
+.project--info--item :global(svg) {
+  color: var(--project-description-color);
+}
+
+.project--contributors {
+  position: relative;
+  height: 24px;
+}
+
+.project--contributor {
+  position: absolute;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  border: 2px solid var(--article-bg-color);
+}

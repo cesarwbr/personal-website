@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactElement } from "react";
+import styles from "./footer.module.css";
 
 interface SocialMedia {
   link: string;
@@ -101,60 +102,24 @@ export default function Footer() {
   ];
 
   return (
-    <footer>
+    <footer className={styles["footer"]}>
       <Link href="/">
-        <a className="footer--name">© Cesar William</a>
+        <a className={styles["link footer--name"]}>© Cesar William</a>
       </Link>
-      <nav className="social-media">
+      <nav className={styles["social-media"]}>
         {socialMedias.map((socialMedia) => (
           <a
             key={socialMedia.link}
             href={socialMedia.link}
             target="_blank"
-            rel="noopener"
-            className="social-media--item"
+            rel="noreferrer"
+            className={styles["social-media--item"]}
             aria-label={socialMedia.label}
           >
             {socialMedia.icon}
           </a>
         ))}
       </nav>
-
-      <style jsx>{`
-        footer {
-          display: flex;
-          width: 100%;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .footer--name {
-          text-decoration: none;
-          flex-shirink: 0;
-          font-weight: 600;
-          color: var(--footer-color);
-          letter-spacing: 0.05em;
-        }
-
-        .social-media {
-          display: flex;
-        }
-
-        .social-media--item {
-          box-shadow: none;
-          margin-left: 1.1rem;
-          color: var(--footer-color);
-        }
-
-        .social-media--item:hover {
-          color: #3182ce;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-      `}</style>
     </footer>
   );
 }

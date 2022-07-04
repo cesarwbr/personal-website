@@ -1,3 +1,4 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import {
   Article,
   fetchAllDBArticles,
@@ -5,7 +6,7 @@ import {
   insertDBArticles,
 } from "../../lib/articles";
 
-export default async (_, res) => {
+async function verifyArticlesApi(_: NextApiRequest, res: NextApiResponse) {
   const response = await verifyArticles();
 
   if (response.status === 204 || response.status > 400) {
@@ -13,7 +14,9 @@ export default async (_, res) => {
   }
 
   return res.status(200).json({ inserted: true });
-};
+}
+
+export default verifyArticlesApi;
 
 async function verifyArticles(): Promise<{ status: number }> {
   const notInDBArticles = await getNotInDB();

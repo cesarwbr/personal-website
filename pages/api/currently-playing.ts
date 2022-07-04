@@ -1,6 +1,7 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { getCurrentlyPlaying } from "../../lib/spotify";
 
-export default async (_, res) => {
+async function currentlyPlaing(_: NextApiRequest, res: NextApiResponse) {
   const response = await getCurrentlyPlaying();
 
   if (response.status === 204 || response.status > 400) {
@@ -10,7 +11,9 @@ export default async (_, res) => {
   const track = (await response.json()) as CurrentlyPlayingResponse;
 
   return res.status(200).json(getNowPlayingMetadata(track));
-};
+}
+
+export default currentlyPlaing;
 
 function getNowPlayingMetadata(track: CurrentlyPlayingResponse) {
   return {

@@ -8,15 +8,23 @@ export function getArticlesJSONLD(articles: Article[]): {
   const personImageURL =
     "https://cdn-images-1.medium.com/fit/c/150/150/1*Asz3If7oQLXgt4cEM7UnFA.jpeg";
 
-  const person = {
+  const person: SchemaPerson = {
     "@type": "Person",
     email: "cesarwbr@gmail.com",
-    name: "Cesar William Alvarenga",
-    familyName: "Alvarenga",
-    gender: "male",
-    givenName: "Cesar",
+    name: "Cesar Alvarenga",
     jobTitle: "Software Engineer",
     image: personImageURL,
+    url: "https://cesarwilliam.com",
+    sameAs: [
+      "http://twitter.com/cesarwbr",
+      "https://www.linkedin.com/in/cesarwalvarenga",
+      "https://github.com/cesarwbr",
+      "https://cesarwilliam.com"
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Arena.im"
+    }
   };
 
   const articlesFormatted: SchemaArticles = {
@@ -61,13 +69,6 @@ export function getArticlesJSONLD(articles: Article[]): {
   const organization: SchemaPerson = {
     "@context": "http://schema.org",
     ...person,
-    url: "https://www.cesarwilliam.com",
-    sameAs: [
-      "https://twitter.com/cesarwbr",
-      "https://github.com/cesarwbr",
-      "https://dev.to/cesarwbr",
-      "www.linkedin.com/in/cesarwalvarenga",
-    ],
   };
 
   return {
@@ -81,13 +82,14 @@ interface SchemaPerson {
   "@type": string;
   email: string;
   name: string;
-  familyName: string;
-  gender: string;
-  givenName: string;
   jobTitle: string;
   image: string;
-  url?: string;
-  sameAs?: string[];
+  url: string;
+  sameAs: string[];
+  worksFor: {
+    "@type": string,
+    name: string
+  }
 }
 
 interface SchemaArticles {

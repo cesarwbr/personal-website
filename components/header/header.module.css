@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 45px 0;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--main-primary-color);
+  display: flex;
+  align-items: center;
+}
