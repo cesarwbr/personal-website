@@ -3,8 +3,10 @@ import {
   fetchAllDBProjects,
   fetchPinnedProjects,
   insertDBProjects,
+  updateDBProjects,
   Project,
 } from "../../lib/projects";
+import { rebuildWebsite } from "../../lib/vercel";
 
 async function verifyProjectsApi(_: NextApiRequest, res: NextApiResponse) {
   const response = await verifyProjects();
@@ -13,32 +15,81 @@ async function verifyProjectsApi(_: NextApiRequest, res: NextApiResponse) {
     return res.status(500).json({ inserted: false });
   }
 
+  rebuildWebsite();
+
   return res.status(200).json({ inserted: true });
 }
 
 export default verifyProjectsApi;
 
 async function verifyProjects(): Promise<{ status: number }> {
-  const notInDBProjects = await getNotInDB();
+  const pinnedProjects = await fetchPinnedProjects();
+  const dbProjects = await fetchAllDBProjects();
+
+  const notInDBProjects = await getNotInDB(pinnedProjects, dbProjects);
+  const updatedProjects = await getUpdatedProjects(pinnedProjects, dbProjects);
 
   try {
-    await insertDBProjects(notInDBProjects);
-    return { status: 200 };
+    if (notInDBProjects.length) {
+      await insertDBProjects(notInDBProjects);
+    }
+
+    if (updatedProjects.length) {
+      await updateDBProjects(updatedProjects);
+    }
+
+    if (notInDBProjects.length && updatedProjects.length) {
+      return { status: 200 };
+    }
+
+    return { status: 204 };
   } catch (e) {
     return { status: 500 };
   }
 }
 
-async function getNotInDB(): Promise<Omit<Project, "_id">[]> {
-  const pinnedProjects = await fetchPinnedProjects();
+async function getNotInDB(
+  pinnedProjects: Omit<Project, "_id">[],
+  dbProjects: Project[]
+): Promise<Omit<Project, "_id">[]> {
+  try {
+    const dbGuidsSet = new Set<string>();
 
-  const dbProjects = await fetchAllDBProjects();
+    dbProjects.forEach((project) => {
+      dbGuidsSet.add(project.name);
+    });
 
-  const dbGuidsSet = new Set<string>();
+    return pinnedProjects.filter((project) => !dbGuidsSet.has(project.name));
+  } catch (e) {
+    return [];
+  }
+}
 
-  dbProjects.forEach((project) => {
-    dbGuidsSet.add(project.name);
-  });
+async function getUpdatedProjects(
+  pinnedProjects: Omit<Project, "_id">[],
+  dbProjects: Project[]
+): Promise<Project[]> {
+  try {
+    const dbGuidsMap = new Map<string, Omit<Project, "_id">>();
 
-  return pinnedProjects.filter((article) => !dbGuidsSet.has(article.name));
+    pinnedProjects.forEach((project) => {
+      dbGuidsMap.set(project.name, project);
+    });
+
+    return dbProjects
+      .filter(
+        (project) =>
+          dbGuidsMap.get(project.name).forkCount !== project.forkCount ||
+          dbGuidsMap.get(project.name).stargazerCount !== project.stargazerCount
+      )
+      .map((project) => {
+        return {
+          ...project,
+          forkCount: dbGuidsMap.get(project.name).forkCount,
+          stargazerCount: dbGuidsMap.get(project.name).stargazerCount,
+        };
+      });
+  } catch (e) {
+    return [];
+  }
 }

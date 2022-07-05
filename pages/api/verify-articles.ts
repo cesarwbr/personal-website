@@ -5,6 +5,7 @@ import {
   fetchLatestArticles,
   insertDBArticles,
 } from "../../lib/articles";
+import { rebuildWebsite } from "../../lib/vercel";
 
 async function verifyArticlesApi(_: NextApiRequest, res: NextApiResponse) {
   const response = await verifyArticles();
@@ -12,6 +13,8 @@ async function verifyArticlesApi(_: NextApiRequest, res: NextApiResponse) {
   if (response.status === 204 || response.status > 400) {
     return res.status(500).json({ inserted: false });
   }
+
+  rebuildWebsite();
 
   return res.status(200).json({ inserted: true });
 }
@@ -22,8 +25,12 @@ async function verifyArticles(): Promise<{ status: number }> {
   const notInDBArticles = await getNotInDB();
 
   try {
-    await insertDBArticles(notInDBArticles);
-    return { status: 200 };
+    if (notInDBArticles.length) {
+      await insertDBArticles(notInDBArticles);
+      return { status: 200 };
+    }
+
+    return { status: 204 };
   } catch (e) {
     return { status: 500 };
   }

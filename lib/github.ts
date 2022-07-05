@@ -49,24 +49,28 @@ export class GitHubService {
 
     const data = await this.client.request(query);
 
-    console.log({ data });
-
     return data.user.pinnedItems.nodes as GitHubRepository[];
   }
 
   public async fetchRepositoryContributors(
     repositoryName: string
   ): Promise<GithubContributor[]> {
-    console.log({ repositoryName });
-    const response = await fetch(
-      `https://api.github.com/repos/cesarwbr/${repositoryName}/contributors`
-    );
-    const payload = await response.json();
-    const items = payload as unknown as GithubContributor[];
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/cesarwbr/${repositoryName}/contributors`
+      );
+      const payload = await response.json();
 
-    console.log({ items });
+      if (!Array.isArray(payload)) {
+        return [];
+      }
 
-    return Array.isArray(items) ? items : [];
+      const items = payload as unknown as GithubContributor[];
+
+      return Array.isArray(items) ? items : [];
+    } catch (e) {
+      return [];
+    }
   }
 }
 

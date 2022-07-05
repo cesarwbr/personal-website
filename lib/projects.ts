@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { connectToDatabase } from "../config/mongodb";
 import { GitHubService } from "./github";
 
@@ -55,22 +56,26 @@ export async function fetchPinnedProjects(): Promise<Omit<Project, "_id">[]> {
 }
 
 export async function fetchAllDBProjects(): Promise<Project[]> {
-  const { db } = await connectToDatabase();
-  let projectsDb = (await db
-    .collection("projects")
-    .find({})
-    .toArray()) as unknown as Project[];
+  try {
+    const { db } = await connectToDatabase();
+    let projectsDb = (await db
+      .collection("projects")
+      .find({})
+      .toArray()) as unknown as Project[];
 
-  if (!projectsDb) {
+    if (!projectsDb) {
+      return [];
+    }
+
+    return projectsDb.map((projectDb) => {
+      return {
+        ...projectDb,
+        _id: projectDb._id.toString(),
+      } as Project;
+    });
+  } catch (e) {
     return [];
   }
-
-  return projectsDb.map((projectDb) => {
-    return {
-      ...projectDb,
-      _id: projectDb._id.toString(),
-    } as Project;
-  });
 }
 
 export async function insertDBProjects(projects: Omit<Project, "_id">[]) {
@@ -82,6 +87,30 @@ export async function insertDBProjects(projects: Omit<Project, "_id">[]) {
     return result;
   } catch (e) {
     throw new Error("Cannot insert projects");
+  }
+}
+
+export async function updateDBProjects(projects: Project[]) {
+  const { db } = await connectToDatabase();
+
+  try {
+    const result = await Promise.all(
+      projects.map((project) => {
+        return db.collection("projects").updateOne(
+          { _id: new ObjectId(project._id) },
+          {
+            $set: {
+              forkCount: project.forkCount,
+              stargazerCount: project.stargazerCount,
+            },
+          }
+        );
+      })
+    );
+
+    return result;
+  } catch (e) {
+    throw new Error("Cannot update projects");
   }
 }
 
