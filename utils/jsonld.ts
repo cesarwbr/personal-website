@@ -19,12 +19,12 @@ export function getArticlesJSONLD(articles: Article[]): {
       "http://twitter.com/cesarwbr",
       "https://www.linkedin.com/in/cesarwalvarenga",
       "https://github.com/cesarwbr",
-      "https://cesarwilliam.com"
+      "https://cesarwilliam.com",
     ],
     worksFor: {
       "@type": "Organization",
-      name: "Arena.im"
-    }
+      name: "Arena.im",
+    },
   };
 
   const articlesFormatted: SchemaArticles = {
@@ -66,9 +66,61 @@ export function getArticlesJSONLD(articles: Article[]): {
     }),
   };
 
-  const organization: SchemaPerson = {
-    "@context": "http://schema.org",
-    ...person,
+  const organization = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://cesarwilliam.com/#website",
+        url: "https://cesarwilliam.com/",
+        name: "Cesar William Alvarenga",
+        description:
+          "Software Engineer passionate about Performance and Innovative Ideas. Mainly focused on front-end development and fluent in HTML, CSS, and JavaScript and I have knowledge of server-side languages",
+        potentialAction: [
+          {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: "https://cesarwilliam.com/?s={search_term_string}",
+            },
+            "query-input": "required name=search_term_string",
+          },
+        ],
+        inLanguage: "en-US",
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://cesarwilliam.com/#webpage",
+        url: "https://cesarwilliam.com/",
+        name: "home - Cesar William Alvarenga",
+        isPartOf: {
+          "@id": "https://cesarwilliam.com/#website",
+        },
+        datePublished: "2017-06-20T03:02:35+00:00",
+        dateModified: "2022-07-06T19:02:48+00:00",
+        breadcrumb: {
+          "@id": "https://cesarwilliam.com/#breadcrumb",
+        },
+        inLanguage: "en-US",
+        potentialAction: [
+          {
+            "@type": "ReadAction",
+            target: ["https://cesarwilliam.com/"],
+          },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://cesarwilliam.com/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+          },
+        ],
+      },
+    ],
   };
 
   return {
@@ -87,9 +139,9 @@ interface SchemaPerson {
   url: string;
   sameAs: string[];
   worksFor: {
-    "@type": string,
-    name: string
-  }
+    "@type": string;
+    name: string;
+  };
 }
 
 interface SchemaArticles {

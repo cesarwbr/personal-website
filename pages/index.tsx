@@ -36,7 +36,7 @@ export default function Home({ allArticles, allProjects }: Props) {
 
   const title = "Cesar William Alvarenga";
   const description =
-    "Hey, I'm Cesar. I'm a software engineer, builder, and occasional writer.";
+    "Software Engineer passionate about Performance and Innovative Ideas. Mainly focused on front-end development and fluent in HTML, CSS, and JavaScript and I have knowledge of server-side languages";
   const image =
     "https://s.gravatar.com/avatar/a18e1d0e81914e7a108ef59e5e4a8bc3?s=1200";
 
