@@ -107,6 +107,7 @@ export default function Home({ allArticles, allProjects }: Props) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: articlesJSONLD }}
         />
+        <link rel="canonical" href="https://cesarwilliam.com/"></link>
       </Head>
 
       <Header />
