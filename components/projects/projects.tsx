@@ -16,7 +16,9 @@ export default function Projects({ projects }: Props) {
   }, []);
 
   function getFavicon(url: string) {
-    return `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${url}&size=20`;
+    return `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(
+      url
+    )}&size=20`;
   }
 
   return (
