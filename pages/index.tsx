@@ -107,11 +107,7 @@ export default function Home({ allArticles, allProjects }: Props) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: articlesJSONLD }}
         />
-        <link rel="canonical" href="https://cesarwilliam.com/"></link>
-        <meta
-          name="google-site-verification"
-          content="xDO7V5VBmQpzsdlHlnD3cQrRo0x48K15Ew_kOHVIyIc"
-        />
+        <link rel="canonical" href="https://cesarwilliam.com/" />
       </Head>
 
       <Header />
