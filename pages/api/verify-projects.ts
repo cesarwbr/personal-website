@@ -12,12 +12,12 @@ async function verifyProjectsApi(_: NextApiRequest, res: NextApiResponse) {
   const response = await verifyProjects();
 
   if (response.status === 204 || response.status > 400) {
-    return res.status(500).json({ inserted: false });
+    return res.status(500).json({ updated: false });
   }
 
   rebuildWebsite();
 
-  return res.status(200).json({ inserted: true });
+  return res.status(200).json({ updated: true });
 }
 
 export default verifyProjectsApi;
@@ -38,7 +38,7 @@ async function verifyProjects(): Promise<{ status: number }> {
       await updateDBProjects(updatedProjects);
     }
 
-    if (notInDBProjects.length && updatedProjects.length) {
+    if (notInDBProjects.length || updatedProjects.length) {
       return { status: 200 };
     }
 
