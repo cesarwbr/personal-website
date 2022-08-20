@@ -15,7 +15,7 @@ async function verifyProjectsApi(_: NextApiRequest, res: NextApiResponse) {
     return res.status(500).json({ updated: false });
   }
 
-  rebuildWebsite();
+  await rebuildWebsite();
 
   return res.status(200).json({ updated: true });
 }

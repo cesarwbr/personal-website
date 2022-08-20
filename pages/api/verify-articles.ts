@@ -14,7 +14,7 @@ async function verifyArticlesApi(_: NextApiRequest, res: NextApiResponse) {
     return res.status(500).json({ inserted: false });
   }
 
-  rebuildWebsite();
+  await rebuildWebsite();
 
   return res.status(200).json({ inserted: true });
 }
