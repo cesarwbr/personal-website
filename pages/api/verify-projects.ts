@@ -11,7 +11,11 @@ import { rebuildWebsite } from "../../lib/vercel";
 async function verifyProjectsApi(_: NextApiRequest, res: NextApiResponse) {
   const response = await verifyProjects();
 
-  if (response.status === 204 || response.status > 400) {
+  if (response.status === 304) {
+    return res.status(304).json({ updated: false });
+  }
+
+  if (response.status > 400) {
     return res.status(500).json({ updated: false });
   }
 
@@ -42,7 +46,7 @@ async function verifyProjects(): Promise<{ status: number }> {
       return { status: 200 };
     }
 
-    return { status: 204 };
+    return { status: 304 };
   } catch (e) {
     return { status: 500 };
   }
