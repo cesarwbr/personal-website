@@ -8,7 +8,7 @@ export default function Profile() {
         <Image
           width="142"
           height="142"
-          src="/images/photo.png"
+          src="/images/photo2.jpg"
           alt="Cesar"
           className={styles["photo"]}
           quality="100"
