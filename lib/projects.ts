@@ -102,6 +102,7 @@ export async function updateDBProjects(projects: Project[]) {
             $set: {
               forkCount: project.forkCount,
               stargazerCount: project.stargazerCount,
+              contributors: project.contributors,
             },
           },
         );
