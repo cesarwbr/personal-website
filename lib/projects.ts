@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import { connectToDatabase } from "../config/mongodb";
 import { GitHubService } from "./github";
 
-export async function getAllPorjects(): Promise<Project[]> {
+export async function getAllProjects(): Promise<Project[]> {
   const { db } = await connectToDatabase();
   let projectsDb = await db
     .collection("projects")
@@ -28,14 +28,14 @@ export async function getAllPorjects(): Promise<Project[]> {
 }
 
 export async function fetchPinnedProjects(): Promise<Omit<Project, "_id">[]> {
-  const githubRepositories =
-    await GitHubService.instance.fetchPinnedRepositories();
+  const githubRepositories = await GitHubService.instance
+    .fetchPinnedRepositories();
 
   const projects = await Promise.all(
     githubRepositories.map(async (repository) => {
       const project = repository as Project;
-      const gitHubContributors =
-        await GitHubService.instance.fetchRepositoryContributors(project.name);
+      const gitHubContributors = await GitHubService.instance
+        .fetchRepositoryContributors(project.name);
 
       project.contributors = gitHubContributors.map((gitHubContributor) => {
         const contributor: Contributor = {
@@ -49,7 +49,7 @@ export async function fetchPinnedProjects(): Promise<Omit<Project, "_id">[]> {
       });
 
       return project;
-    })
+    }),
   );
 
   return projects;
@@ -103,9 +103,9 @@ export async function updateDBProjects(projects: Project[]) {
               forkCount: project.forkCount,
               stargazerCount: project.stargazerCount,
             },
-          }
+          },
         );
-      })
+      }),
     );
 
     return result;

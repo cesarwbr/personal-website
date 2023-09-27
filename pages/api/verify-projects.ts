@@ -3,8 +3,8 @@ import {
   fetchAllDBProjects,
   fetchPinnedProjects,
   insertDBProjects,
-  updateDBProjects,
   Project,
+  updateDBProjects,
 } from "../../lib/projects";
 import { rebuildWebsite } from "../../lib/vercel";
 
@@ -54,7 +54,7 @@ async function verifyProjects(): Promise<{ status: number }> {
 
 async function getNotInDB(
   pinnedProjects: Omit<Project, "_id">[],
-  dbProjects: Project[]
+  dbProjects: Project[],
 ): Promise<Omit<Project, "_id">[]> {
   try {
     const dbGuidsSet = new Set<string>();
@@ -71,7 +71,7 @@ async function getNotInDB(
 
 async function getUpdatedProjects(
   pinnedProjects: Omit<Project, "_id">[],
-  dbProjects: Project[]
+  dbProjects: Project[],
 ): Promise<Project[]> {
   try {
     const dbGuidsMap = new Map<string, Omit<Project, "_id">>();
@@ -84,13 +84,17 @@ async function getUpdatedProjects(
       .filter(
         (project) =>
           dbGuidsMap.get(project.name).forkCount !== project.forkCount ||
-          dbGuidsMap.get(project.name).stargazerCount !== project.stargazerCount
+          dbGuidsMap.get(project.name).stargazerCount !==
+            project.stargazerCount ||
+          dbGuidsMap.get(project.name).contributors.length !==
+            project.contributors.length,
       )
       .map((project) => {
         return {
           ...project,
           forkCount: dbGuidsMap.get(project.name).forkCount,
           stargazerCount: dbGuidsMap.get(project.name).stargazerCount,
+          contributors: dbGuidsMap.get(project.name).contributors,
         };
       });
   } catch (e) {

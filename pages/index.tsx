@@ -9,12 +9,12 @@ import Articles from "../components/articles/articles";
 import CurrentlyPlayingSong from "../components/currently-playing/currently-playing";
 import { getArticlesJSONLD } from "../utils/jsonld";
 import Projects from "../components/projects/projects";
-import { getAllPorjects, Project } from "../lib/projects";
+import { getAllProjects, Project } from "../lib/projects";
 import styles from "../styles/home.module.css";
 
 export const getStaticProps: GetStaticProps = async () => {
   const allArticles = await getAllArticles();
-  const allProjects = await getAllPorjects();
+  const allProjects = await getAllProjects();
 
   return {
     props: {
