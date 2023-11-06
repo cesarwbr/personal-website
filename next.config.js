@@ -9,5 +9,13 @@ module.exports = {
       "avatars.githubusercontent.com",
     ],
     deviceSizes: [320, 340, 660, 800],
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/privacy',
+        destination: '/privacy.html',
+      },
+    ]
+  },
 };
