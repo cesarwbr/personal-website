@@ -36,7 +36,7 @@ export default function Home({ allArticles, allProjects }: Props) {
 
   const title = "Cesar Alvarenga - Software Engineer | Web Development";
   const description =
-    "I'm Cesar Alvarenga, a software engineer specializing in front-end web development. Explore my projects and technical articles covering JavaScript, TypeScript, React, design patterns, and web development best practices gained throughout my career.";
+    "Software engineer specializing in front-end web development with JavaScript, TypeScript, and React. Explore my projects and articles.";
   const image =
     "https://s.gravatar.com/avatar/a18e1d0e81914e7a108ef59e5e4a8bc3?s=1200";
 
