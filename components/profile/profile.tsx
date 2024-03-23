@@ -9,7 +9,7 @@ export default function Profile() {
           width="142"
           height="142"
           src="/images/photo2.jpg"
-          alt="Cesar"
+          alt="Cesar Alvarenga, TypeScript and React Developer"
           className={styles["photo"]}
           quality="100"
           sizes="142px"
@@ -19,7 +19,7 @@ export default function Profile() {
         <span className={styles["profile--description--hero"]}>
           Hey, I&apos;m Cesar.
         </span>{" "}
-        I&apos;m a software engineer, builder, and writer.
+        - Software Engineer, Web Developer, Technical Writer
       </h1>
     </div>
   );

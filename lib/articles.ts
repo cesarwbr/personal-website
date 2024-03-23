@@ -45,6 +45,8 @@ export async function fetchLatestArticles(): Promise<Omit<Article, "_id">[]> {
       description: item.description,
       guid: item.guid,
       categories: item.categories,
+      claps: item.claps,
+      comments: item.comments,
     }));
 }
 
@@ -88,4 +90,6 @@ export interface Article {
   description: string;
   guid: string;
   categories: string[];
+  comments: number;
+  claps: number;
 }

@@ -52,5 +52,7 @@ async function getNotInDB(): Promise<Omit<Article, "_id">[]> {
     .map((article) => ({
       ...article,
       pubDate: new Date(article.pubDate),
+      claps: 0,
+      comments: 0,
     }));
 }

@@ -34,9 +34,10 @@ export default function Home({ allArticles, allProjects }: Props) {
     return getArticlesJSONLD(allArticles);
   }, [allArticles]);
 
-  const title = "Cesar William Alvarenga";
+  const title =
+    "Cesar Alvarenga - Software Engineer | Web Development, Design Patterns, TypeScript";
   const description =
-    "Software Engineer passionate about Performance and Innovative Ideas. Mainly focused on front-end development and fluent in HTML, CSS, and JavaScript and I have knowledge of server-side languages";
+    "Cesar Alvarenga is a software engineer specializing in front-end web development with JavaScript, TypeScript, React and design patterns. Explore his projects and technical articles.";
   const image =
     "https://s.gravatar.com/avatar/a18e1d0e81914e7a108ef59e5e4a8bc3?s=1200";
 
@@ -94,6 +95,11 @@ export default function Home({ allArticles, allProjects }: Props) {
           name="msapplication-TileColor"
           content="#da532c"
         />
+        <meta
+          data-react-helmet="true"
+          name="keywords"
+          content="software engineer, web development, JavaScript, TypeScript, React, design patterns, front-end development"
+        ></meta>
         <meta data-react-helmet="true" name="theme-color" content="#ffffff" />
         <meta
           name="google-site-verification"
