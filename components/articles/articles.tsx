@@ -1,5 +1,6 @@
 import Image from "next/image";
 import dayjs from "dayjs";
+import Link from "next/link";
 
 import styles from "./articles.module.css";
 import { Article } from "../../lib/articles";
@@ -17,7 +18,7 @@ export default function Articles({ allArticles }: Props) {
       <h2 className={styles["title"]}>Recent Posts</h2>
       <div className={styles["articles"]}>
         {allArticles.map((article, index) => (
-          <a
+          <Link
             href={article.link}
             target="_blank"
             key={article.title}
@@ -28,11 +29,10 @@ export default function Articles({ allArticles }: Props) {
               <Image
                 alt={article.title}
                 src={article.thumbnail}
-                layout="fill"
+                fill={true}
                 sizes={`(max-width: 768px) 340px, (max-width: 1024px) 340px, ${
                   index !== 0 ? "400px" : "800px"
                 }`}
-                objectFit="cover"
               />
             </div>
             <div className={styles["article--info"]}>
@@ -43,7 +43,7 @@ export default function Articles({ allArticles }: Props) {
                 {formatPubDate(article.pubDate)}
               </p>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

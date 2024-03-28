@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import Head from "next/head";
+import Script from "next/script";
 import { getAllArticles, Article } from "../lib/articles";
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
@@ -104,22 +105,28 @@ export default function Home({ allArticles, allProjects }: Props) {
           name="google-site-verification"
           content="mcFqnSQfhKdWTQcZXzvRaGngL-vBw4w9HBAphsVeBPo"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: organizationJSONLD }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: articlesJSONLD }}
-        />
+
         <link rel="canonical" href="https://cesarwilliam.com/" />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=UA-67252968-1`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+      </Head>
+
+      <Script
+        id="organizationJSONLD"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: organizationJSONLD }}
+      />
+      <Script
+        id="articlesJSONLD"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: articlesJSONLD }}
+      />
+      <Script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=UA-67252968-1`}
+      />
+      <Script
+        id="datalayer"
+        dangerouslySetInnerHTML={{
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -127,9 +134,8 @@ export default function Home({ allArticles, allProjects }: Props) {
               page_path: window.location.pathname,
             });
           `,
-          }}
-        />
-      </Head>
+        }}
+      />
 
       <Header />
 

@@ -1,12 +1,27 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: [
-      "cdn-images-1.medium.com",
-      "i.scdn.co",
-      "miro.medium.com",
-      "t0.gstatic.com",
-      "avatars.githubusercontent.com",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.medium.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 't0.gstatic.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+      },
     ],
     deviceSizes: [320, 340, 660, 800],
   },

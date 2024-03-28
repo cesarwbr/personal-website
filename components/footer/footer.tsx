@@ -103,12 +103,12 @@ export default function Footer() {
 
   return (
     <footer className={styles["footer"]}>
-      <Link href="/">
-        <a className={styles["link footer--name"]}>© Cesar William</a>
+      <Link href="/" className={styles["link footer--name"]}>
+        © Cesar William
       </Link>
       <nav className={styles["social-media"]}>
         {socialMedias.map((socialMedia) => (
-          <a
+          <Link
             key={socialMedia.link}
             href={socialMedia.link}
             target="_blank"
@@ -117,7 +117,7 @@ export default function Footer() {
             aria-label={socialMedia.label}
           >
             {socialMedia.icon}
-          </a>
+          </Link>
         ))}
       </nav>
     </footer>

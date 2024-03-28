@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { GoStar, GoRepoForked } from "react-icons/go";
 import { Project } from "../../lib/projects";
 import styles from "./projects.module.css";
+import Link from "next/link";
 
 type Props = {
   projects: Project[];
@@ -27,7 +28,7 @@ export default function Projects({ projects }: Props) {
       <ol className={styles["projects"]}>
         {projects.map((project) => (
           <li key={project.name}>
-            <a
+            <Link
               href={project.url}
               target="_blank"
               rel="noreferrer"
@@ -38,7 +39,6 @@ export default function Projects({ projects }: Props) {
                   src={getFavicon(project.homepageUrl)}
                   width={20}
                   height={20}
-                  layout="fixed"
                   alt={project.name}
                   className={styles["project--image"]}
                 />
@@ -83,13 +83,14 @@ export default function Projects({ projects }: Props) {
                       <Image
                         src={contributor.avatar_url}
                         alt={contributor.login}
-                        layout="fill"
+                        width={28}
+                        height={28}
                       />
                     </div>
                   ))}
                 </section>
               </footer>
-            </a>
+            </Link>
           </li>
         ))}
       </ol>
