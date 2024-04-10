@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"; // defaults to auto
 import { getCurrentlyPlaying } from "../lib/spotify";
 
 export async function GET() {

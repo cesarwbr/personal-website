@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; // defaults to auto
+
 import {
   fetchAllDBProjects,
   fetchPinnedProjects,
