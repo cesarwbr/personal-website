@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useCallback } from "react";
 import { GoStar, GoRepoForked } from "react-icons/go";
-import { Project } from "../../lib/projects";
+import { Project } from "../../api/lib/projects";
 import styles from "./projects.module.css";
 import Link from "next/link";
 

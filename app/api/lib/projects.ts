@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { connectToDatabase } from "../config/mongodb";
+import { connectToDatabase } from "../../../config/mongodb";
 import { GitHubService } from "./github";
 
 export async function getAllProjects(): Promise<Project[]> {

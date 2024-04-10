@@ -1,25 +1,22 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import {
   Article,
   fetchAllDBArticles,
   fetchLatestArticles,
   insertDBArticles,
-} from "../../lib/articles";
-import { rebuildWebsite } from "../../lib/vercel";
+} from "../lib/articles";
+import { rebuildWebsite } from "../lib/vercel";
 
-async function verifyArticlesApi(_: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   const response = await verifyArticles();
 
   if (response.status === 204 || response.status > 400) {
-    return res.status(500).json({ inserted: false });
+    return Response.json({ inserted: false });
   }
 
   await rebuildWebsite();
 
-  return res.status(200).json({ inserted: true });
+  return Response.json({ inserted: true });
 }
-
-export default verifyArticlesApi;
 
 async function verifyArticles(): Promise<{ status: number }> {
   const notInDBArticles = await getNotInDB();

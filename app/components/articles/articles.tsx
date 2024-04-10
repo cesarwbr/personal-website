@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 
 import styles from "./articles.module.css";
-import { Article } from "../../lib/articles";
+import { Article } from "../../api/lib/articles";
 
 type Props = {
   allArticles: Article[];

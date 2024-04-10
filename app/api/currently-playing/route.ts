@@ -1,19 +1,16 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { getCurrentlyPlaying } from "../../lib/spotify";
+import { getCurrentlyPlaying } from "../lib/spotify";
 
-async function currentlyPlaing(_: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   const response = await getCurrentlyPlaying();
 
   if (response.status === 204 || response.status > 400) {
-    return res.status(200).json({ isPlaying: false });
+    return Response.json({ isPlaying: false });
   }
 
   const track = (await response.json()) as CurrentlyPlayingResponse;
 
-  return res.status(200).json(getNowPlayingMetadata(track));
+  return Response.json(getNowPlayingMetadata(track));
 }
-
-export default currentlyPlaing;
 
 function getNowPlayingMetadata(track: CurrentlyPlayingResponse) {
   return {

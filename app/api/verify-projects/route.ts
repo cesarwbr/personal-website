@@ -1,30 +1,27 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import {
   fetchAllDBProjects,
   fetchPinnedProjects,
   insertDBProjects,
   Project,
   updateDBProjects,
-} from "../../lib/projects";
-import { rebuildWebsite } from "../../lib/vercel";
+} from "../lib/projects";
+import { rebuildWebsite } from "../lib/vercel";
 
-async function verifyProjectsApi(_: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
   const response = await verifyProjects();
 
   if (response.status === 304) {
-    return res.status(304).json({ updated: false });
+    return new Response(JSON.stringify({ updated: false }), { status: 304 });
   }
 
   if (response.status > 400) {
-    return res.status(500).json({ updated: false });
+    return new Response(JSON.stringify({ updated: false }), { status: 500 });
   }
 
   await rebuildWebsite();
 
-  return res.status(200).json({ updated: true });
+  return new Response(JSON.stringify({ updated: true }), { status: 200 });
 }
-
-export default verifyProjectsApi;
 
 async function verifyProjects(): Promise<{ status: number }> {
   const pinnedProjects = await fetchPinnedProjects();

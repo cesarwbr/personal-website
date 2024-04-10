@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { Article } from "../lib/articles";
+import { Article } from "../app/api/lib/articles";
 
 export function getArticlesJSONLD(articles: Article[]): {
   organizationJSONLD: string;

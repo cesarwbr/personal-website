@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../config/mongodb";
+import { connectToDatabase } from "../../../config/mongodb";
 
 export async function getAllArticles(): Promise<Article[]> {
   const { db } = await connectToDatabase();

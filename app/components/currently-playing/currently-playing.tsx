@@ -1,8 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 import styles from "./currently-playing.module.css";
-import fetchLib from "../../lib/fetch";
+import fetchLib from "../../api/lib/fetch";
 
 export interface CurrentlyPlaying {
   album?: {
