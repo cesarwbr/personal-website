@@ -47,17 +47,17 @@ export class GitHubService {
       }
     `;
 
-    const data = await this.client.request(query);
+    const data = await this.client.request<GraphQLQueryResult>(query);
 
-    return data.user.pinnedItems.nodes as GitHubRepository[];
+    return data.user.pinnedItems.nodes;
   }
 
   public async fetchRepositoryContributors(
-    repositoryName: string
+    repositoryName: string,
   ): Promise<GithubContributor[]> {
     try {
       const response = await fetch(
-        `https://api.github.com/repos/cesarwbr/${repositoryName}/contributors`
+        `https://api.github.com/repos/cesarwbr/${repositoryName}/contributors`,
       );
       const payload = await response.json();
 
@@ -72,6 +72,14 @@ export class GitHubService {
       return [];
     }
   }
+}
+
+interface GraphQLQueryResult {
+  user: {
+    pinnedItems: {
+      nodes: GitHubRepository[];
+    };
+  };
 }
 
 export interface GithubContributor {

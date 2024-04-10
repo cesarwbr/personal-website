@@ -1,4 +1,3 @@
-import fetch from "isomorphic-unfetch";
 import querystring from "querystring";
 
 const {
@@ -7,11 +6,12 @@ const {
   SPOTIFY_REFRESH_TOKEN,
 } = process.env;
 
-const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
+const NOW_PLAYING_ENDPOINT =
+  `https://api.spotify.com/v1/me/player/currently-playing`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const basic = Buffer.from(
-  `${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`
+  `${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`,
 ).toString("base64");
 
 export async function getCurrentlyPlaying(): Promise<Response> {

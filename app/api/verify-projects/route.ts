@@ -11,7 +11,7 @@ export async function GET() {
   const response = await verifyProjects();
 
   if (response.status === 304) {
-    return new Response(JSON.stringify({ updated: false }), { status: 304 });
+    return new Response(JSON.stringify({ updated: false }));
   }
 
   if (response.status > 400) {

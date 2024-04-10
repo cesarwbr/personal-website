@@ -1,4 +1,3 @@
-import fetch from "isomorphic-unfetch";
 import { Fetcher } from "swr";
 
 function fetchLib<T>() {
