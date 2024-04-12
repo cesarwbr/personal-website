@@ -1,4 +1,3 @@
-import "../styles/globals.css";
 import { Metadata } from "next";
 import Script from "next/script";
 import { getAllArticles } from "./api/lib/articles";
@@ -25,8 +24,7 @@ async function getData() {
 const title = "Cesar Alvarenga - Software Engineer | Web Development";
 const description =
   "Software engineer specializing in front-end web development with JavaScript, TypeScript, and React. Explore my projects and articles.";
-const image =
-  "https://s.gravatar.com/avatar/a18e1d0e81914e7a108ef59e5e4a8bc3?s=1200";
+const image = "/images/photo2.jpg";
 
 export const metadata: Metadata = {
   title,
