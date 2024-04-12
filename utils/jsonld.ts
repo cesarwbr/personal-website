@@ -182,6 +182,12 @@ export function getArticlesJSONLD(articles: Article[]): {
             "name": "Home",
             "item": "https://cesarwilliam.com/",
           },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "NFL Live Hub",
+            "item": "https://cesarwilliam.com/nfl-live-hub",
+          },
         ],
       },
     ],
