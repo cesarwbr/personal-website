@@ -150,7 +150,9 @@ export default async function NflLiveHub() {
             </div>
           </div>
         </div>
-        <InstallButton />
+        <section className={styles["install-button-container"]}>
+          <InstallButton />
+        </section>
       </section>
       <Features />
       <section className={styles["install-button-container"]}>
