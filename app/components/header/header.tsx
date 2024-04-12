@@ -28,7 +28,7 @@ export default function Header({ right }: { right?: ReactNode }) {
     <div className={headerClasses}>
       <header className={styles["header"]}>
         <Link href="/" className={styles["name"]}>
-          Cesar William
+          Cw
         </Link>
         {right}
       </header>
