@@ -39,6 +39,7 @@
   transition: box-shadow 0.2s ease 0s, transform 0.2s ease 0s;
   padding: 12px 14px;
   background: var(--article-bg-color);
+  min-height: 156px;
 }
 
 .project:focus {

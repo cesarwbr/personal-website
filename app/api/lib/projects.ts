@@ -8,7 +8,6 @@ export async function getAllProjects(): Promise<Project[]> {
     .collection("projects")
     .find({})
     .sort({ pubDate: -1 })
-    .limit(4)
     .toArray();
 
   if (!projectsDb) {
@@ -118,16 +117,18 @@ export async function updateDBProjects(projects: Project[]) {
 export interface Project {
   _id: string;
   name: string;
-  primaryLanguage: {
+  primaryLanguage?: {
     name: string;
     color: string;
   };
   description: string;
   homepageUrl: string;
-  forkCount: number;
-  stargazerCount: number;
+  forkCount?: number;
+  stargazerCount?: number;
   url: string;
-  contributors: Contributor[];
+  contributors?: Contributor[];
+  imageUrl?: string;
+  type: "repository" | "app";
 }
 
 interface Contributor {
