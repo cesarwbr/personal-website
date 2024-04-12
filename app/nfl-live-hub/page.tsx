@@ -66,7 +66,7 @@ export default async function NflLiveHub() {
         right={
           <InstallButton
             showDescription={false}
-            label="Add to Chrome"
+            label="Install"
             style={{ padding: "6px 18px", fontWeight: 400, fontSize: "14px" }}
           />
         }
