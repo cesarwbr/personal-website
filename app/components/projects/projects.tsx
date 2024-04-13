@@ -30,7 +30,7 @@ export default function Projects({ projects }: Props) {
           <li key={project.name}>
             <Link
               href={project.url}
-              target="_blank"
+              target={project.type === "app" ? "_self" : "_blank"}
               rel="noreferrer"
               className={styles["project"]}
             >
