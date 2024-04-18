@@ -24,7 +24,8 @@ async function getData() {
 const title = "Cesar Alvarenga - Software Engineer | Web Development";
 const description =
   "Software engineer specializing in front-end web development with JavaScript, TypeScript, and React. Explore my projects and articles.";
-const image = "/images/photo2.jpg";
+const image =
+  "https://cesarwilliam.com/_next/image?url=%2Fimages%2Fphoto2.jpg&w=256&q=100";
 
 export const metadata: Metadata = {
   title,
