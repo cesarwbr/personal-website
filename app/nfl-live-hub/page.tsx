@@ -8,9 +8,9 @@ import { Metadata } from "next";
 import Script from "next/script";
 import { jsonld } from "./jsonld";
 
-const title = "NFL Live Hub";
+const title = "NFL Live Hub: Real-time Scores, Stats, and Fan Chat";
 const description =
-  "Real-time NFL scores, stats, game recaps, standings, and fan chat in one extension.";
+  "Experience the ultimate NFL Live Hub extension. Get real-time scores, detailed stats, game recaps, updated standings, and engage in live fan chats. All your NFL needs in one extension.";
 const image = "https://cesarwilliam.com/nfl-live-hub/highlights-screenshot.png";
 
 export const metadata: Metadata = {
@@ -19,7 +19,16 @@ export const metadata: Metadata = {
   applicationName: "NFL Live Hub",
   creator: "Cesar Alvarenga",
   publisher: "Cesar Alvarenga",
-  keywords: ["NFL Live Hub", "NFL", "Chrome", "Chrome Extension"],
+  keywords: [
+    "NFL Live Hub",
+    "NFL Scores",
+    "NFL Stats",
+    "NFL Game Recaps",
+    "NFL Standings",
+    "NFL Fan Chat",
+    "Chrome Extension for NFL",
+    "NFL Updates",
+  ],
   icons: "/favicon.ico",
   openGraph: {
     images: image,
