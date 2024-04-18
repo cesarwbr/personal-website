@@ -11,7 +11,7 @@ import { jsonld } from "./jsonld";
 const title = "NFL Live Hub";
 const description =
   "Real-time NFL scores, stats, game recaps, standings, and fan chat in one extension.";
-const image = "/nfl-logo.png";
+const image = "https://cesarwilliam.com/nfl-live-hub/highlights-screenshot.png";
 
 export const metadata: Metadata = {
   title,
