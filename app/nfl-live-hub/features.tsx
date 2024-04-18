@@ -4,6 +4,12 @@ import styles from "../../styles/nfl-live-hub.module.css";
 export function Features() {
   const features = [
     {
+      title: "HIGHLIGHT VIDEOS",
+      image: "/nfl-live-hub/highlights-screenshot.png",
+      description:
+        "Explore the highlights of every NFL game. Watch highlights of past games, live highlights as they happen, or stay tuned for the latest games.",
+    },
+    {
       title: "REAL-TIME SCOREBOARD",
       image: "/nfl-live-hub/main-screenshot.png",
       description:
@@ -15,12 +21,7 @@ export function Features() {
       description:
         "Join a vibrant community of NFL enthusiasts! Engage in real-time discussions about ongoing games, share predictions, celebrate victories, or analyze plays with fellow fans.",
     },
-    {
-      title: "HIGHLIGHT VIDEOS",
-      image: "/nfl-live-hub/highlights-screenshot.png",
-      description:
-        "Explore the highlights of every NFL game. Watch highlights of past games, live highlights as they happen, or stay tuned for the latest games.",
-    },
+
     {
       title: "STANDINGS TRACKER",
       image: "/nfl-live-hub/standings-screenshot.png",
@@ -54,10 +55,11 @@ export function Features() {
             <Image
               src={feature.image}
               alt={feature.title}
-              sizes="(max-width: 768px) 340px, (max-width: 1024px) 340px, 900px"
-              style={{ width: "100%", height: "auto" }}
-              width={500}
-              height={300}
+              // sizes="(max-width: 768px) 340px, (max-width: 1024px) 340px, 900px"
+              quality={100}
+              width={900}
+              height={567}
+              unoptimized={true}
             />
           </div>
           <p>{feature.description}</p>
