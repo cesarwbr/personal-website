@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: image,
     type: "website",
-    url: "https://www.cesarwilliam.com/nfl-live-hub",
+    url: "https://cesarwilliam.com/nfl-live-hub",
     siteName: title,
     title,
     description,
