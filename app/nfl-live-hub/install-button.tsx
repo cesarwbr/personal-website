@@ -20,14 +20,14 @@ export default function InstallButton({
         style={style}
       >
         <Image
-          src="https://storage.googleapis.com/brandflow-bucket/brandbird/home/chrome-logo-white-1.svg"
+          src="/images/chrome-logo-white.svg"
           alt="Chrome Logo"
           width={16}
           height={16}
           style={{ height: "16px" }}
           aria-hidden="true"
         />
-        {label || "Install from Chrome Web Store"}
+        <span>{label || "Install from Chrome Web Store"}</span>
       </a>
       {showDescription !== false ? (
         <p>Free / No account needed / Multi-language support</p>
