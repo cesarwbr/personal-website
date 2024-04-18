@@ -68,10 +68,7 @@ export const metadata: Metadata = {
     startupImage: "/apple-touch-icon.png",
   },
   alternates: {
-    canonical: "https://cesarwilliam.com/",
-    languages: {
-      "en-US": "https://cesarwilliam.com/",
-    },
+    canonical: "https://cesarwilliam.com",
   },
 };
 

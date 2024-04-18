@@ -48,9 +48,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://cesarwilliam.com/nfl-live-hub",
-    languages: {
-      "en-US": "https://cesarwilliam.com/nfl-live-hub",
-    },
   },
 };
 
