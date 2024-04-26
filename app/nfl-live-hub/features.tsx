@@ -5,7 +5,7 @@ export function Features() {
   const features = [
     {
       title: "HIGHLIGHT VIDEOS",
-      image: "/nfl-live-hub/highlights-screenshot.webp",
+      image: "/nfl-live-hub/games-screenshot.webp",
       description:
         "Explore the highlights of every NFL game. Watch highlights of past games, live highlights as they happen, or stay tuned for the latest games.",
     },
@@ -48,9 +48,19 @@ export function Features() {
         styles["delay-4-no-pop"]
       }
     >
-      {features.map((feature) => (
-        <div key={feature.title}>
-          <h2>{feature.title}</h2>
+      {features.map((feature, i) => (
+        <div
+          key={feature.title}
+          className={
+            styles["feature-item"] +
+            " " +
+            (i % 2 === 0 ? "" : styles["feature-item__reverse"])
+          }
+        >
+          <div className={styles["feature-item-content"]}>
+            <h2>{feature.title}</h2>
+            <p>{feature.description}</p>
+          </div>
           <div className={styles["feature-item-image"]}>
             <Image
               src={feature.image}
@@ -62,7 +72,6 @@ export function Features() {
               unoptimized={true}
             />
           </div>
-          <p>{feature.description}</p>
         </div>
       ))}
     </section>

@@ -255,52 +255,114 @@
 
 .features-container {
   margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feature-item-content {
+  place-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column;
+  gap: 16px;
+  height: min-content;
+  overflow: visible;
+  padding: 0px;
+  position: relative;
 }
 
 .features-container h2 {
-  text-align: center;
-  font-size: 1.5rem;
+  text-align: left;
+  font-size: 36px;
   line-height: 1;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.025rem;
-  margin-top: 90px;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 2px #6c6c6c;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .features-container p {
-  text-align: center;
-  font-size: 1rem;
+  text-align: left;
+  font-size: 20px;
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0.025rem;
   margin-top: 20px;
   margin-bottom: 30px;
-  text-shadow: 1px 1px 2px #6c6c6c;
   max-width: 900px;
   margin: 0 auto;
   margin-top: 10px;
 }
 
 .feature-item-image {
-  width: 100%;
-  max-width: 900px;
+  width: 400px;
   margin: 0 auto;
+  flex-shrink: 0;
+  flex: 1;
 }
 
 .feature-item-image > img {
+  width: 400px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.feature-item {
+  place-content: center;
+  align-items: center;
+  background-color: rgb(203 203 203 / 3%);
+  border-radius: 18px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: row;
+  gap: 85px;
+  height: min-content;
+  max-width: 1280px;
+  overflow: visible;
+  padding: 64px 60px;
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(106, 127, 255, 0.2);
+}
+
+.feature-item__reverse {
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 767px) {
+  .feature-item {
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 30px 31px;
+  }
+
+  .feature-item-image {
+    width: 100%;
+  }
+
+  .feature-item-image > img {
+    width: 100%;
+  }
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.hero-image > img {
   width: 100%;
   height: auto;
   border-radius: 4px;
 }
 
-@media screen and (max-width: 768px) {
-  .feature-item-image {
-    margin-left: -24px;
+@media screen and (max-width: 767px) {
+  .hero-image > img {
+    margin: -24px;
     width: 100vw;
-  }
-
-  .feature-item-image > img {
-    border-radius: 0;
   }
 }

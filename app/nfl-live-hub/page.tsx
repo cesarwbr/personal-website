@@ -162,7 +162,7 @@ export default async function NflLiveHub() {
           <InstallButton />
         </section>
       </section>
-      <section className={styles["feature-item-image"]}>
+      <section className={styles["hero-image"]}>
         <Image
           src="/nfl-live-hub/hero-screenshot.webp"
           alt="NFL Live Hub Chat"
