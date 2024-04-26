@@ -164,7 +164,7 @@ export default async function NflLiveHub() {
       </section>
       <section className={styles["feature-item-image"]}>
         <Image
-          src="/nfl-live-hub/hero-screenshot.png"
+          src="/nfl-live-hub/hero-screenshot.webp"
           alt="NFL Live Hub Chat"
           // sizes="(max-width: 768px) 340px, (max-width: 1024px) 340px, 900px"
           quality={100}
