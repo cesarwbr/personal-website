@@ -162,6 +162,17 @@ export default async function NflLiveHub() {
           <InstallButton />
         </section>
       </section>
+      <section className={styles["feature-item-image"]}>
+        <Image
+          src="/nfl-live-hub/hero-screenshot.png"
+          alt="NFL Live Hub Chat"
+          // sizes="(max-width: 768px) 340px, (max-width: 1024px) 340px, 900px"
+          quality={100}
+          width={900}
+          height={567}
+          unoptimized={true}
+        />
+      </section>
       <Features />
       <section
         className={styles["install-button-container"]}
