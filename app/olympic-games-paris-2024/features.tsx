@@ -130,8 +130,7 @@ export default function Features() {
       title: "Global fan chat",
       description:
         "Connect with passionate fans worldwide to share your excitement, predictions, and reactions",
-      image:
-        "https://framerusercontent.com/images/PA7tvndEv7wdLEzxzVgIVlPDZJo.webp",
+      image: "/olympic-games/chat-ss.png",
     },
   ];
   return (
