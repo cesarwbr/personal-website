@@ -112,7 +112,7 @@ export default function MainFeatures() {
     },
     {
       icon: <ListVideo size={28} color="#caa726" />,
-      title: "Exclusive video highlights",
+      title: "Video highlights",
       description:
         "Relive the most jaw-dropping moments and awe-inspiring performances",
       animation: {

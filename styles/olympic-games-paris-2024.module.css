@@ -154,6 +154,13 @@
   cursor: pointer;
 }
 
+.hero--action-producthunt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .hero--action-install img {
   width: 24px;
   height: 24px;

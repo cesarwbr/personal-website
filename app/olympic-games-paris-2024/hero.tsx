@@ -445,6 +445,40 @@ export default function Hero() {
       },
     },
   };
+
+  const actionProducthunt = {
+    containerProps: {
+      animate: {
+        opacity: 1,
+        rotate: 0,
+        rotateX: 0,
+        rotateY: 0,
+        scale: 1,
+        skewX: 0,
+        skewY: 0,
+        transition: {
+          damping: 30,
+          delay: 1,
+          mass: 1,
+          stiffness: 150,
+          type: "spring",
+        },
+        x: 0,
+        y: 0,
+      },
+      initial: {
+        opacity: 0.001,
+        rotate: 0,
+        rotateX: 0,
+        rotateY: 0,
+        scale: 1,
+        skewX: 0,
+        skewY: 0,
+        x: 0,
+        y: 0,
+      },
+    },
+  };
   return (
     <div className={styles["hero--container"]}>
       <div className={styles["hero--floating-images"]}>
@@ -538,6 +572,23 @@ export default function Hero() {
             />
             <span>Install from Chrome Web Store</span>
           </motion.a>
+          <motion.div
+            className={styles["hero--action-producthunt"]}
+            {...actionProducthunt.containerProps}
+          >
+            <a
+              href="https://www.producthunt.com/posts/olympic-games-chrome-extension?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-olympic&#0045;games&#0045;chrome&#0045;extension"
+              target="_blank"
+            >
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=472237&theme=light"
+                alt="Olympic&#0032;Games&#0032;Chrome&#0032;Extension - Track&#0032;Paris&#0032;2024&#0032;schedules&#0044;&#0032;highlights&#0044;&#0032;medals&#0032;&#0043;&#0032;fan&#0032;chat | Product Hunt"
+                style={{ width: "200px", height: "54px" }}
+                width="200"
+                height="54"
+              />
+            </a>
+          </motion.div>
         </div>
       </div>
     </div>

@@ -113,7 +113,7 @@ export default function Features() {
         "https://framerusercontent.com/images/sWaWrH2jKr1uOxf5ehS2xQuy8.webp",
     },
     {
-      title: "Exclusive video highlights",
+      title: "Video highlights",
       description:
         "Relive the most jaw-dropping moments and awe-inspiring performances",
       image:
