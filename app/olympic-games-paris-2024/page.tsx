@@ -11,8 +11,7 @@ const title =
   "Olympic Games Paris 2024 Chrome Extension: Real-time Medals, Videos, Highlights, and Fan Chat";
 const description =
   "Experience the ultimate Olympics Paris 2024 Chrome Extension. Get real-time scores, detailed stats, game recaps, updated standings, and engage in live fan chats. All your Olympics Paris 2024 needs in one Chrome Extension.";
-const image =
-  "https://cesarwilliam.com/olympic-games-paris-2024/highlights-screenshot.png";
+const image = "https://cesarwilliam.com/olympic-games/screenshot.png";
 
 export const metadata: Metadata = {
   title,
