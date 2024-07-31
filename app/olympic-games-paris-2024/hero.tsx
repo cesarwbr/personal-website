@@ -554,7 +554,7 @@ export default function Hero() {
           <motion.a
             className={styles["hero--action-install"]}
             {...actionInstall.containerProps}
-            href="https://chromewebstore.google.com/detail/olympic-games-paris-2024/gogmlglijehaingjggcmdkpjagodcohl"
+            href="https://chromewebstore.google.com/detail/olympic-games-paris-2024/gogmlglijehaingjggcmdkpjagodcohl?utm_source=product_page&utm_medium=referral&utm_campaign=chrome_extension_launch"
             target="_blank"
             rel="noreferrer"
           >
