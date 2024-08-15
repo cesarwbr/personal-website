@@ -181,8 +181,8 @@ const jsonldJson = {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "5",
-        reviewCount: "2",
+        ratingValue: "4.8",
+        reviewCount: "11",
       },
       review: [
         {
@@ -212,6 +212,124 @@ const jsonldJson = {
           },
           reviewBody:
             "This is exactly what I needed!! Can't wait for the Olympic Games!",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Leandro de Oliveira",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "now we need a paralimpics games table",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Paulo Martins",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "Amazing extension! love the group chat!",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Amiswa .z",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "Nice timing, really apreciate the idea 🔥",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Calebe Aires",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "Good to get brand new data from Paris 2024 schedule",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Angel Carrillo",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "luka luo",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "非常好，简洁！喜欢！",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "平井伸治",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "3",
+            bestRating: "5",
+          },
+          reviewBody:
+            "全ての国の競技が表示されるので見辛い。国や競技を設定保存でき、設定したもののみが表示されると良くなると感じた。",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Matheus Alvarenga",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "intuitivo, informações atualizadas.",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Andrés González",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "",
         },
       ],
     },
