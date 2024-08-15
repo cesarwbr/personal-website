@@ -181,8 +181,8 @@ const jsonldJson = {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "11",
+        ratingValue: "4.83",
+        reviewCount: "12",
       },
       review: [
         {
@@ -330,6 +330,20 @@ const jsonldJson = {
             bestRating: "5",
           },
           reviewBody: "",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "Gustavo Girard",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody:
+            "I really like this extension, specially that I hade easy informations like medals list and the first thirsts place, easily.",
         },
       ],
     },
