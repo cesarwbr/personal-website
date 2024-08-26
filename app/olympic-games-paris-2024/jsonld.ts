@@ -181,8 +181,8 @@ const jsonldJson = {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.83",
-        reviewCount: "12",
+        ratingValue: "4.85",
+        reviewCount: "13",
       },
       review: [
         {
@@ -344,6 +344,19 @@ const jsonldJson = {
           },
           reviewBody:
             "I really like this extension, specially that I hade easy informations like medals list and the first thirsts place, easily.",
+        },
+        {
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: "黄铭翰",
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+          },
+          reviewBody: "太好了，美丽便捷实在好用",
         },
       ],
     },
