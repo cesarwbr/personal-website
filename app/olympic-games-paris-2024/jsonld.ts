@@ -187,7 +187,10 @@ const jsonldJson = {
       review: [
         {
           "@type": "Review",
-          author: "Gabriel Carvalho",
+          author: {
+            "@type": "Person",
+            name: "Gabriel Carvalho",
+          },
           datePublished: "2024-05-20",
           reviewRating: {
             "@type": "Rating",
@@ -200,7 +203,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Luís Eterovick",
+          author: {
+            "@type": "Person",
+            name: "Luís Eterovick",
+          },
           datePublished: "2024-05-23",
           reviewRating: {
             "@type": "Rating",
@@ -213,7 +219,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Andrés González",
+          author: {
+            "@type": "Person",
+            name: "Andrés González",
+          },
           datePublished: "2024-07-19",
           reviewRating: {
             "@type": "Rating",
@@ -224,7 +233,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Amiswa .z",
+          author: {
+            "@type": "Person",
+            name: "Amiswa .z",
+          },
           datePublished: "2024-07-23",
           reviewRating: {
             "@type": "Rating",
@@ -236,7 +248,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Calebe Aires",
+          author: {
+            "@type": "Person",
+            name: "Calebe Aires",
+          },
           datePublished: "2024-07-23",
           reviewRating: {
             "@type": "Rating",
@@ -248,7 +263,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Matheus Alvarenga",
+          author: {
+            "@type": "Person",
+            name: "Matheus Alvarenga",
+          },
           datePublished: "2024-07-23",
           reviewRating: {
             "@type": "Rating",
@@ -260,7 +278,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "平井伸治",
+          author: {
+            "@type": "Person",
+            name: "平井伸治",
+          },
           datePublished: "2024-07-26",
           reviewRating: {
             "@type": "Rating",
@@ -273,7 +294,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "luka luo",
+          author: {
+            "@type": "Person",
+            name: "luka luo",
+          },
           datePublished: "2024-07-28",
           reviewRating: {
             "@type": "Rating",
@@ -285,7 +309,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Angel Carrillo",
+          author: {
+            "@type": "Person",
+            name: "Angel Carrillo",
+          },
           datePublished: "2024-08-01",
           reviewRating: {
             "@type": "Rating",
@@ -296,7 +323,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Paulo Martins",
+          author: {
+            "@type": "Person",
+            name: "Paulo Martins",
+          },
           datePublished: "2024-08-06",
           reviewRating: {
             "@type": "Rating",
@@ -308,7 +338,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Leandro de Oliveira",
+          author: {
+            "@type": "Person",
+            name: "Leandro de Oliveira",
+          },
           datePublished: "2024-08-12",
           reviewRating: {
             "@type": "Rating",
@@ -320,7 +353,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "Gustavo Girard",
+          author: {
+            "@type": "Person",
+            name: "Gustavo Girard",
+          },
           datePublished: "2024-08-15",
           reviewRating: {
             "@type": "Rating",
@@ -333,7 +369,10 @@ const jsonldJson = {
         },
         {
           "@type": "Review",
-          author: "黄铭翰",
+          author: {
+            "@type": "Person",
+            name: "黄铭翰",
+          },
           datePublished: "2024-08-25",
           reviewRating: {
             "@type": "Rating",
