@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: image,
     type: "website",
-    url: "https://cesarwilliam.com",
+    url: "https://cesarwilliam.com/",
     siteName: title,
     title,
     description,
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     startupImage: "/apple-touch-icon.png",
   },
   alternates: {
-    canonical: "https://cesarwilliam.com",
+    canonical: "https://cesarwilliam.com/",
   },
 };
 

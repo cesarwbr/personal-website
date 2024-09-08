@@ -181,180 +181,165 @@ const jsonldJson = {
       },
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.85",
+        ratingValue: "4.8",
         reviewCount: "13",
       },
       review: [
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Gabriel Carvalho",
-          },
+          author: "Gabriel Carvalho",
+          datePublished: "2024-05-20",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
           },
           reviewBody:
             "The design is exceptionally clear and functional; I thoroughly enjoyed it.",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Luís Eterovick",
-          },
+          author: "Luís Eterovick",
+          datePublished: "2024-05-23",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
           },
           reviewBody:
             "This is exactly what I needed!! Can't wait for the Olympic Games!",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Leandro de Oliveira",
-          },
+          author: "Andrés González",
+          datePublished: "2024-07-19",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
           },
-          reviewBody: "now we need a paralimpics games table",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Paulo Martins",
-          },
+          author: "Amiswa .z",
+          datePublished: "2024-07-23",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
-          },
-          reviewBody: "Amazing extension! love the group chat!",
-        },
-        {
-          "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Amiswa .z",
-          },
-          reviewRating: {
-            "@type": "Rating",
-            ratingValue: "5",
-            bestRating: "5",
+            worstRating: "1",
           },
           reviewBody: "Nice timing, really apreciate the idea 🔥",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Calebe Aires",
-          },
+          author: "Calebe Aires",
+          datePublished: "2024-07-23",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
           },
           reviewBody: "Good to get brand new data from Paris 2024 schedule",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Angel Carrillo",
-          },
+          author: "Matheus Alvarenga",
+          datePublished: "2024-07-23",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
           },
-          reviewBody: "",
+          reviewBody: "intuitivo, informações atualizadas.",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "luka luo",
-          },
-          reviewRating: {
-            "@type": "Rating",
-            ratingValue: "5",
-            bestRating: "5",
-          },
-          reviewBody: "非常好，简洁！喜欢！",
-        },
-        {
-          "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "平井伸治",
-          },
+          author: "平井伸治",
+          datePublished: "2024-07-26",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "3",
             bestRating: "5",
+            worstRating: "1",
           },
           reviewBody:
             "全ての国の競技が表示されるので見辛い。国や競技を設定保存でき、設定したもののみが表示されると良くなると感じた。",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Matheus Alvarenga",
-          },
+          author: "luka luo",
+          datePublished: "2024-07-28",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
           },
-          reviewBody: "intuitivo, informações atualizadas.",
+          reviewBody: "非常好，简洁！喜欢！",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Andrés González",
-          },
+          author: "Angel Carrillo",
+          datePublished: "2024-08-01",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
           },
-          reviewBody: "",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "Gustavo Girard",
-          },
+          author: "Paulo Martins",
+          datePublished: "2024-08-06",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
+          },
+          reviewBody: "Amazing extension! love the group chat!",
+        },
+        {
+          "@type": "Review",
+          author: "Leandro de Oliveira",
+          datePublished: "2024-08-12",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+            worstRating: "1",
+          },
+          reviewBody: "now we need a paralimpics games table",
+        },
+        {
+          "@type": "Review",
+          author: "Gustavo Girard",
+          datePublished: "2024-08-15",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+            worstRating: "1",
           },
           reviewBody:
             "I really like this extension, specially that I hade easy informations like medals list and the first thirsts place, easily.",
         },
         {
           "@type": "Review",
-          author: {
-            "@type": "Person",
-            name: "黄铭翰",
-          },
+          author: "黄铭翰",
+          datePublished: "2024-08-25",
           reviewRating: {
             "@type": "Rating",
             ratingValue: "5",
             bestRating: "5",
+            worstRating: "1",
           },
           reviewBody: "太好了，美丽便捷实在好用",
         },
