@@ -26,3 +26,9 @@
 .social-media--item:hover {
   color: #3182ce;
 }
+
+.footer--name-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

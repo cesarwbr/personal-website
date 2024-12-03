@@ -103,9 +103,15 @@ export default function Footer() {
 
   return (
     <footer className={styles["footer"]}>
-      <Link href="/" className={styles["link footer--name"]}>
-        © Cesar William
-      </Link>
+      <div className={styles["footer--name-container"]}>
+        <Link href="/" className={styles["link footer--name"]}>
+          © Cesar William
+        </Link>
+        |
+        <Link href="/privacy" className={styles["link footer--name"]}>
+          Privacy Policy
+        </Link>
+      </div>
       <nav className={styles["social-media"]}>
         {socialMedias.map((socialMedia) => (
           <Link
