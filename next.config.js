@@ -31,6 +31,10 @@ module.exports = {
         source: '/privacy',
         destination: '/privacy.html',
       },
+      {
+        source: '/legal-ai-privacy-policy',
+        destination: '/legal-ai-privacy-policy.html',
+      },
     ]
   },
 };
