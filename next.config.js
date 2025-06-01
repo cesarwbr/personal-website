@@ -35,6 +35,10 @@ module.exports = {
         source: '/legal-ai-privacy-policy',
         destination: '/legal-ai-privacy-policy.html',
       },
+      {
+        source: '/terms-of-service',
+        destination: '/terms-of-service.html',
+      },
     ]
   },
 };
