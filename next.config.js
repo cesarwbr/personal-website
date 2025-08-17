@@ -44,7 +44,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: "nfl-live-hub",
+        source: "/nfl-live-hub",
         destination: "https://nfllivehub.com/",
         permanent: true,
       },
