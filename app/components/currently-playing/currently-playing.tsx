@@ -17,7 +17,7 @@ export interface CurrentlyPlaying {
 }
 
 export default function CurrentlyPlayingSong() {
-  let { data: currentlyPlaying } = useSWR(
+  const { data: currentlyPlaying } = useSWR(
     "/api/currently-playing",
     fetchLib<CurrentlyPlaying>(),
     {

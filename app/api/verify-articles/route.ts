@@ -30,7 +30,7 @@ async function verifyArticles(): Promise<{ status: number }> {
     }
 
     return { status: 204 };
-  } catch (e) {
+  } catch {
     return { status: 500 };
   }
 }

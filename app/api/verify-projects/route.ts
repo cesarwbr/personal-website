@@ -46,7 +46,7 @@ async function verifyProjects(): Promise<{ status: number }> {
     }
 
     return { status: 304 };
-  } catch (e) {
+  } catch {
     return { status: 500 };
   }
 }
@@ -63,7 +63,7 @@ async function getNotInDB(
     });
 
     return pinnedProjects.filter((project) => !dbGuidsSet.has(project.name));
-  } catch (e) {
+  } catch {
     return [];
   }
 }
@@ -96,7 +96,7 @@ async function getUpdatedProjects(
           contributors: dbGuidsMap.get(project.name).contributors,
         };
       });
-  } catch (e) {
+  } catch {
     return [];
   }
 }

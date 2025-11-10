@@ -4,7 +4,7 @@ import { GitHubService } from "./github";
 
 export async function getAllProjects(): Promise<Project[]> {
   const { db } = await connectToDatabase();
-  let projectsDb = await db
+  const projectsDb = await db
     .collection("projects")
     .find({})
     .sort({ pubDate: -1 })
@@ -57,7 +57,7 @@ export async function fetchPinnedProjects(): Promise<Omit<Project, "_id">[]> {
 export async function fetchAllDBProjects(): Promise<Project[]> {
   try {
     const { db } = await connectToDatabase();
-    let projectsDb = (await db
+    const projectsDb = (await db
       .collection("projects")
       .find({})
       .toArray()) as unknown as Project[];
@@ -72,7 +72,7 @@ export async function fetchAllDBProjects(): Promise<Project[]> {
         _id: projectDb._id.toString(),
       } as Project;
     });
-  } catch (e) {
+  } catch {
     return [];
   }
 }
@@ -84,7 +84,7 @@ export async function insertDBProjects(projects: Omit<Project, "_id">[]) {
     const result = await db.collection("projects").insertMany(projects);
 
     return result;
-  } catch (e) {
+  } catch {
     throw new Error("Cannot insert projects");
   }
 }
@@ -109,7 +109,7 @@ export async function updateDBProjects(projects: Project[]) {
     );
 
     return result;
-  } catch (e) {
+  } catch {
     throw new Error("Cannot update projects");
   }
 }

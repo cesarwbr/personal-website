@@ -68,7 +68,7 @@ export class GitHubService {
       const items = payload as unknown as GithubContributor[];
 
       return Array.isArray(items) ? items : [];
-    } catch (e) {
+    } catch {
       return [];
     }
   }

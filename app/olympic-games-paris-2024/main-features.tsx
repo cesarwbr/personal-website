@@ -2,12 +2,13 @@
 import { motion } from "framer-motion";
 import { WandSparkles, ListVideo, Medal } from "lucide-react";
 import styles from "../../styles/olympic-games-paris-2024.module.css";
+import { ReactElement } from "react";
 
 function Feature({
   feature,
 }: {
   feature: {
-    icon: JSX.Element;
+    icon: ReactElement;
     title: string;
     description: string;
     animation: {

@@ -158,7 +158,7 @@ export default function Features() {
             hidden: headerProps.initial,
           }}
         >
-          Discover Olympic Games Chrome Extension's Powerful Features
+          Discover Olympic Games Chrome Extension&apos;s Powerful Features
         </motion.h3>
         <motion.p
           initial="hidden"

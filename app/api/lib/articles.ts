@@ -2,7 +2,7 @@ import { connectToDatabase } from "../../../config/mongodb";
 
 export async function getAllArticles(): Promise<Article[]> {
   const { db } = await connectToDatabase();
-  let articlesDb = await db
+  const articlesDb = await db
     .collection("articles")
     .find({})
     .sort({ pubDate: -1 })
@@ -52,7 +52,7 @@ export async function fetchLatestArticles(): Promise<Omit<Article, "_id">[]> {
 
 export async function fetchAllDBArticles(): Promise<Article[]> {
   const { db } = await connectToDatabase();
-  let articlesDb = (await db
+  const articlesDb = (await db
     .collection("articles")
     .find({})
     .toArray()) as unknown as Article[];
@@ -76,7 +76,7 @@ export async function insertDBArticles(articles: Omit<Article, "_id">[]) {
     const result = await db.collection("articles").insertMany(articles);
 
     return result;
-  } catch (e) {
+  } catch {
     throw new Error("Cannot insert articles");
   }
 }
