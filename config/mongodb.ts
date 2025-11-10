@@ -11,6 +11,18 @@ export async function connectToDatabase() {
     return { client: cachedClient, db: cachedDb };
   }
 
+  if (!uri) {
+    throw new Error(
+      "MONGODB_URI is not defined. Please check your .env.local file."
+    );
+  }
+
+  if (!dbName) {
+    throw new Error(
+      "MONGODB_DB is not defined. Please check your .env.local file."
+    );
+  }
+
   const client = await MongoClient.connect(uri);
 
   const db = client.db(dbName);

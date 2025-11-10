@@ -5,8 +5,8 @@
 }
 
 .photo-container {
-  width: 142px;
-  height: 142px;
+  width: 320px;
+  height: 400px;
   flex-shrink: 0;
 }
 

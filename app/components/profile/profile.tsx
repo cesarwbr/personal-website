@@ -6,13 +6,12 @@ export default function Profile() {
     <div className={styles["profile"]}>
       <div className={styles["photo-container"]}>
         <Image
-          width="142"
-          height="142"
-          src="/images/photo2.jpg"
+          width="320"
+          height="400"
+          src="/images/no-bg-shadow.png"
           alt="Cesar Alvarenga, TypeScript and React Developer"
           className={styles["photo"]}
           quality="100"
-          sizes="142px"
         />
       </div>
       <h1 className={styles["profile--description"]}>
