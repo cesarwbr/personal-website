@@ -12,18 +12,18 @@ export function getArticlesJSONLD(articles: Article[]): {
     "@type": "Person",
     email: "cesarwbr@gmail.com",
     name: "Cesar Alvarenga",
-    jobTitle: "Senior Software Engineer",
+    jobTitle: "Technical Lead, AI",
     image: personImageURL,
     url: "https://cesarwilliam.com",
     sameAs: [
-      "http://twitter.com/cesarwbr",
+      "https://x.com/cesarwbr",
       "https://www.linkedin.com/in/cesarwalvarenga",
       "https://github.com/cesarwbr",
       "https://cesarwilliam.com",
     ],
     worksFor: {
       "@type": "Organization",
-      name: "Arena.im",
+      name: "Arena",
     },
   };
 
@@ -88,16 +88,16 @@ export function getArticlesJSONLD(articles: Article[]): {
         "@type": "Person",
         "@id": "https://cesarwilliam.com/#person",
         "name": "Cesar William Alvarenga",
-        "jobTitle": "Senior Software Engineer",
+        "jobTitle": "Technical Lead, AI",
         "url": "https://cesarwilliam.com",
         "image":
           "https://cesarwilliam.com/_next/image?url=%2Fimages%2Fphoto2.jpg&w=256&q=100",
         "description":
-          "Skilled Software Engineer with a strong passion for crafting high-performance and innovative web applications. Proficient in front-end technologies such as HTML, CSS, and JavaScript, with additional expertise in server-side development. Committed to writing clean, maintainable, and efficient code to deliver exceptional user experiences.",
+          "Technical Lead, AI with expertise in building intelligent products using LLMs, AI agents, and real-time experiences. Proficient in Python, LangChain, LangGraph, MCP servers, and full-stack development with TypeScript and React. Currently building AI-powered avatar platforms at Arena.",
         "sameAs": [
           "https://www.linkedin.com/in/cesarwalvarenga",
           "https://github.com/cesarwbr",
-          "https://twitter.com/cesarwbr",
+          "https://x.com/cesarwbr",
         ],
         "alumniOf": {
           "@type": "EducationalOrganization",
@@ -116,7 +116,7 @@ export function getArticlesJSONLD(articles: Article[]): {
         "url": "https://cesarwilliam.com/",
         "name": "Cesar William Alvarenga - Personal Website",
         "description":
-          "Explore the portfolio and insights of Cesar William Alvarenga, a skilled Software Engineer specializing in front-end development and performance optimization. Discover his projects, blog posts, and contact information.",
+          "Explore the portfolio and insights of Cesar William Alvarenga, a Technical Lead specializing in AI, LLMs, and intelligent product development. Discover his projects, blog posts, and contact information.",
         "publisher": {
           "@id": "https://cesarwilliam.com/#person",
         },
@@ -138,7 +138,7 @@ export function getArticlesJSONLD(articles: Article[]): {
         "url": "https://cesarwilliam.com/",
         "name": "Home - Cesar William Alvarenga",
         "description":
-          "Welcome to the personal website of Cesar William Alvarenga, a talented Software Engineer. Explore his projects, blog, and learn more about his skills and experience in front-end development and performance optimization.",
+          "Welcome to the personal website of Cesar William Alvarenga, a Technical Lead in AI. Explore his projects, blog, and learn more about his work with LLMs, AI agents, and intelligent product development.",
         "isPartOf": {
           "@id": "https://cesarwilliam.com/#website",
         },
@@ -162,7 +162,7 @@ export function getArticlesJSONLD(articles: Article[]): {
             "https://cesarwilliam.com/_next/image?url=%2Fimages%2Fphoto2.jpg&w=256&q=100",
           "width": 256,
           "height": 256,
-          "caption": "Cesar William Alvarenga - Skilled Software Engineer",
+          "caption": "Cesar William Alvarenga - Technical Lead, AI",
         },
         "speakable": {
           "@type": "SpeakableSpecification",

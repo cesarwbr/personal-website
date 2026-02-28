@@ -9,6 +9,7 @@ import CurrentlyPlayingSong from "./components/currently-playing/currently-playi
 import { getArticlesJSONLD } from "../utils/jsonld";
 import Projects from "./components/projects/projects";
 import { getAllProjects } from "./api/lib/projects";
+import MotionWrapper from "./components/motion-wrapper/motion-wrapper";
 import styles from "../styles/home.module.css";
 
 async function getData() {
@@ -21,9 +22,9 @@ async function getData() {
   };
 }
 
-const title = "Cesar Alvarenga - Software Engineer | Web Development";
+const title = "Cesar Alvarenga - Technical Lead, AI | Building Intelligent Products";
 const description =
-  "Software engineer specializing in front-end web development with JavaScript, TypeScript, and React. Explore my projects and articles.";
+  "Technical Lead, AI specializing in LLMs, AI agents, and real-time experiences. Building products with LangChain, LangGraph, MCP, Python, and TypeScript.";
 const image =
   "https://cesarwilliam.com/_next/image?url=%2Fimages%2Fphoto2.jpg&w=256&q=100";
 
@@ -34,13 +35,16 @@ export const metadata: Metadata = {
   creator: "Cesar Alvarenga",
   publisher: "Cesar Alvarenga",
   keywords: [
-    "software engineer",
-    "web development",
-    "JavaScript",
+    "technical lead",
+    "AI",
+    "LLM",
+    "LangChain",
+    "LangGraph",
+    "MCP",
+    "AI agents",
+    "Python",
     "TypeScript",
     "React",
-    "design patterns",
-    "front-end development",
   ],
   icons: "/favicon.ico",
   openGraph: {
@@ -117,9 +121,13 @@ export default async function Home() {
         <Articles allArticles={allArticles} />
       </main>
 
-      <CurrentlyPlayingSong />
+      <MotionWrapper>
+        <CurrentlyPlayingSong />
+      </MotionWrapper>
 
-      <Footer />
+      <MotionWrapper>
+        <Footer />
+      </MotionWrapper>
     </div>
   );
 }

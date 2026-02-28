@@ -7,21 +7,20 @@ export default function Header({ right }: { right?: ReactNode }) {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        setHasScrolled(true);
-      } else {
-        setHasScrolled(false);
-      }
-    });
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const headerClasses = useMemo(() => {
-    return hasScrolled
-      ? styles["header-container"]
-      : styles["header-container"] +
-          " " +
-          styles["header-container__no-border"];
+    const classes = [styles["header-container"]];
+    if (!hasScrolled) {
+      classes.push(styles["header-container__no-border"]);
+    }
+    return classes.join(" ");
   }, [hasScrolled]);
 
   return (

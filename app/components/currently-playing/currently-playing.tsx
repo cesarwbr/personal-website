@@ -45,8 +45,8 @@ export default function CurrentlyPlayingSong() {
       >
         <div className={styles["currenlty-playing--album--image"]}>
           <Image
-            width="60"
-            height="60"
+            width="52"
+            height="52"
             src={
               currentlyPlaying?.isPlaying
                 ? currentlyPlaying?.album.image
