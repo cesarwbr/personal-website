@@ -1,0 +1,50 @@
+# Cesar William Alvarenga — Personal Website
+
+> Technical Lead, AI at Arena, building intelligent products with LLMs, AI agents, and real-time experiences.
+
+## About
+
+Cesar William Alvarenga is a Technical Lead specializing in AI at Arena. He builds My Avatar (myavatar.ai), an AI-powered platform that creates digital avatars capable of text chat, voice calls, and video calls. He works with LangChain, LangGraph, MCP (Model Context Protocol) servers, Python, TypeScript, and React.
+
+## Current Work
+
+- **Role**: Technical Lead, AI at Arena
+- **Product**: My Avatar (https://myavatar.ai) — AI-powered digital avatar platform
+- **Stack**: Python, LangChain, LangGraph, MCP, TypeScript, React, Next.js
+
+## Expertise
+
+- Large Language Models (LLMs)
+- AI Agents and orchestration
+- LangChain and LangGraph
+- Model Context Protocol (MCP) servers
+- Video AI generation
+- Voice AI
+- Real-time communication
+- Full-stack development (Python, TypeScript, React, Next.js, Node.js)
+
+## Education
+
+- Computer Science, Universidade Federal de Uberlandia (UFU), Brazil
+- International Collegiate Programming Contest (ICPC) member
+
+## Links
+
+- Website: https://cesarwilliam.com
+- GitHub: https://github.com/cesarwbr
+- LinkedIn: https://www.linkedin.com/in/cesarwalvarenga
+- X: https://x.com/cesarwbr
+- Medium: https://medium.com/@cesarwilliam
+- Dev.to: https://dev.to/cesarwbr
+- My Avatar: https://myavatar.ai
+
+## FAQ
+
+**What does Cesar Alvarenga specialize in?**
+Cesar specializes in AI product development as a Technical Lead. He works with Large Language Models (LLMs), AI agents, LangChain, LangGraph, and MCP servers. He builds intelligent products using Python, TypeScript, and React, with a focus on real-time AI experiences including video, voice, and chat.
+
+**What is My Avatar (myavatar.ai)?**
+My Avatar is an AI-powered platform built at Arena that lets you create a digital version of yourself. It enables your audience to engage with your avatar through text chat, voice calls, and video calls, all reflecting your unique personality. It is built with LangChain, LangGraph, MCP, and powered by GPT.
+
+**What technologies does Cesar work with?**
+Python, LangChain, LangGraph, MCP servers, TypeScript, React, Next.js, and Node.js. His current focus is on AI infrastructure including LLM orchestration, AI agent design, video AI generation, and real-time communication systems.

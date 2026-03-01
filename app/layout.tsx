@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cesarwilliam.com"),
   icons: [
     { url: "/favicon.svg", type: "image/svg+xml" },
     { url: "/favicon.ico" },
@@ -18,6 +19,9 @@ export const metadata: Metadata = {
     { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     { url: "/apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" },
   ],
+  other: {
+    "theme-color": "#0a0a0f",
+  },
 };
 
 export default function RootLayout({

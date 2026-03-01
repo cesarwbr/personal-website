@@ -25,8 +25,7 @@ async function getData() {
 const title = "Cesar Alvarenga - Technical Lead, AI | Building Intelligent Products";
 const description =
   "Technical Lead, AI specializing in LLMs, AI agents, and real-time experiences. Building products with LangChain, LangGraph, MCP, Python, and TypeScript.";
-const image =
-  "https://cesarwilliam.com/_next/image?url=%2Fimages%2Fphoto2.jpg&w=256&q=100";
+const image = "https://cesarwilliam.com/images/no-bg-shadow.png";
 
 export const metadata: Metadata = {
   title,
@@ -49,11 +48,12 @@ export const metadata: Metadata = {
 
   openGraph: {
     images: image,
-    type: "website",
+    type: "profile",
     url: "https://cesarwilliam.com/",
-    siteName: title,
+    siteName: "Cesar Alvarenga",
     title,
     description,
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
@@ -80,7 +80,8 @@ export const metadata: Metadata = {
 export default async function Home() {
   const { allArticles, allProjects } = await getData();
 
-  const { articlesJSONLD, organizationJSONLD } = getArticlesJSONLD(allArticles);
+  const { articlesJSONLD, organizationJSONLD, faqJSONLD } =
+    getArticlesJSONLD(allArticles);
 
   return (
     <div className={styles["container"]}>
@@ -95,21 +96,9 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: articlesJSONLD }}
       />
       <Script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=UA-67252968-1`}
-      />
-      <Script
-        id="datalayer"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-67252968-1', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
+        id="faqJSONLD"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: faqJSONLD }}
       />
 
       <Header />

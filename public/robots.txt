@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /email-received
-
-# Host
-Host: https://cesarwilliam.com
-
-# Sitemaps
-Sitemap: https://cesarwilliam.com/sitemap.xml
