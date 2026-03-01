@@ -1,6 +1,7 @@
 "use client";
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import Logo from "../logo/logo";
 import styles from "./header.module.css";
 
 export default function Header({ right }: { right?: ReactNode }) {
@@ -27,7 +28,7 @@ export default function Header({ right }: { right?: ReactNode }) {
     <div className={headerClasses}>
       <header className={styles["header"]}>
         <Link href="/" className={styles["name"]}>
-          Cw
+          <Logo size={28} />
         </Link>
         {right}
       </header>

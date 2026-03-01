@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     "TypeScript",
     "React",
   ],
-  icons: "/favicon.ico",
+
   openGraph: {
     images: image,
     type: "website",

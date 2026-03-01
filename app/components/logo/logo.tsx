@@ -1,0 +1,22 @@
+interface LogoProps {
+  size?: number;
+}
+
+export default function Logo({ size = 28 }: LogoProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Cesar William"
+      role="img"
+    >
+      <path
+        d="M18.1 30.1Q15 30.1 12.3 29Q9.7 28 7.7 26.1Q5.7 24.2 4.6 21.6Q3.5 19 3.5 16Q3.5 13 4.6 10.4Q5.7 7.8 7.7 6Q9.7 4.1 12.3 3Q14.9 1.9 18 1.9Q21.2 1.9 23.8 2.9Q26.4 4 28.3 5.8L23.7 10.4Q22.8 9.3 21.3 8.7Q19.9 8.1 18 8.1Q16.3 8.1 15 8.6Q13.6 9.2 12.6 10.2Q11.6 11.3 11.1 12.7Q10.5 14.2 10.5 16Q10.5 17.8 11.1 19.3Q11.6 20.7 12.6 21.8Q13.6 22.8 15 23.4Q16.3 24 18 24Q19.9 24 21.4 23.4Q22.8 22.8 23.9 21.7L28.5 26.3Q26.5 28.1 24 29.1Q21.5 30.1 18.1 30.1Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
