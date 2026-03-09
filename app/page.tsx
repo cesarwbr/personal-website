@@ -25,7 +25,7 @@ async function getData() {
 const title = "Cesar Alvarenga - Technical Lead, AI | Building Intelligent Products";
 const description =
   "Technical Lead, AI specializing in LLMs, AI agents, and real-time experiences. Building products with LangChain, LangGraph, MCP, Python, and TypeScript.";
-const image = "https://cesarwilliam.com/images/no-bg-shadow.png";
+const image = "https://cesarwilliam.com/images/og-image.png";
 
 export const metadata: Metadata = {
   title,
@@ -80,8 +80,12 @@ export const metadata: Metadata = {
 export default async function Home() {
   const { allArticles, allProjects } = await getData();
 
-  const { articlesJSONLD, organizationJSONLD, faqJSONLD } =
-    getArticlesJSONLD(allArticles);
+  const {
+    articlesJSONLD,
+    organizationJSONLD,
+    faqJSONLD,
+    softwareApplicationsJSONLD,
+  } = getArticlesJSONLD(allArticles);
 
   return (
     <div className={styles["container"]}>
@@ -99,6 +103,11 @@ export default async function Home() {
         id="faqJSONLD"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: faqJSONLD }}
+      />
+      <Script
+        id="softwareApplicationsJSONLD"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: softwareApplicationsJSONLD }}
       />
 
       <Header />

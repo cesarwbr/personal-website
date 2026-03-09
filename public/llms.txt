@@ -28,9 +28,28 @@ Cesar William Alvarenga is a Technical Lead specializing in AI at Arena. He buil
 - Computer Science, Universidade Federal de Uberlandia (UFU), Brazil
 - International Collegiate Programming Contest (ICPC) member
 
+## Notable Projects
+
+- **My Avatar** (https://myavatar.ai) — AI-powered digital avatar platform with text, voice, and video. Built with LangChain, LangGraph, MCP, and GPT.
+- **AI Concierge** (https://arenachat.com) — AI-powered customer engagement assistant for Arena.
+- **react-input-emoji** (https://www.npmjs.com/package/react-input-emoji) — Open-source React input component with emoji picker. Millions of npm downloads.
+- **NFL Live Hub** (https://nfllivehub.com) — Chrome extension for real-time NFL scores, stats, and fan chat. 4.8-star rating.
+- **Olympic Games Paris 2024** (https://cesarwilliam.com/olympic-games-paris-2024) — Chrome extension for real-time Olympic medals, videos, and fan chat. 4.8-star rating, 13 reviews.
+
+## Career Timeline
+
+- **Technical Lead, AI** at Arena (May 2023 - Present) — Building My Avatar, AI Concierge, Arena AI Assistant
+- **Technical Lead** at Arena (Nov 2018 - Apr 2023) — Front-end architecture for real-time engagement platform
+- **Senior Front-end Engineer** at Algar Telecom (Jul 2010 - Jun 2016) — CRM rebuild, team mentoring
+- **Front-end Developer** at Kyros Tecnologia (Oct 2009 - Jun 2010) — Telecom VOIP projects
+- **Front-end Developer** at Concepta (Jan 2007 - Sep 2009) — Service Creation Environment
+- **Intern** at UFU (Jan 2005 - Dec 2006) — Enterprise web platforms
+
 ## Links
 
 - Website: https://cesarwilliam.com
+- About: https://cesarwilliam.com/about
+- Uses: https://cesarwilliam.com/uses
 - GitHub: https://github.com/cesarwbr
 - LinkedIn: https://www.linkedin.com/in/cesarwalvarenga
 - X: https://x.com/cesarwbr

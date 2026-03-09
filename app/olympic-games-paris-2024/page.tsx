@@ -2,7 +2,7 @@ import styles from "../../styles/olympic-games-paris-2024.module.css";
 import Footer from "../components/footer/footer";
 import { Metadata } from "next";
 import Script from "next/script";
-import { jsonld } from "./jsonld";
+import { jsonld, faqJsonld } from "./jsonld";
 import Hero from "./hero";
 import MainFeatures from "./main-features";
 import Features from "./features";
@@ -64,9 +64,14 @@ export default async function NflLiveHub() {
   return (
     <div className={styles.container}>
       <Script
-        id="nflLiveHubJSONLD"
+        id="olympicGamesJSONLD"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonld }}
+      />
+      <Script
+        id="olympicGamesFaqJSONLD"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: faqJsonld }}
       />
       <Hero />
       <MainFeatures />

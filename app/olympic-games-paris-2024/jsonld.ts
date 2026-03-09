@@ -369,3 +369,52 @@ const jsonldJson = {
 };
 
 export const jsonld = JSON.stringify(jsonldJson);
+
+const faqJson = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is the Olympic Games Paris 2024 Chrome Extension?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Olympic Games Paris 2024 Chrome Extension is a free browser extension built by Cesar Alvarenga that provides real-time access to Olympic schedules, medal counts, video highlights, and live fan chat — all from your Chrome toolbar. It was used by thousands of fans during the Paris 2024 Games.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What features does the Olympic Games Paris 2024 extension include?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The extension includes real-time medal tables by country, daily competition schedules, video highlights and recaps, live blog updates from events, and a fan chat feature where users can discuss events in real time. All data is updated automatically as events progress.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What technologies were used to build this extension?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Olympic Games Paris 2024 extension is built with JavaScript, Chrome Extension Manifest V3, and Chrome's service worker architecture. It uses Chrome's alarms API for efficient background polling, Arena's real-time chat SDK for fan engagement, and integrates with multiple Olympic data APIs for live scores and medal counts.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is the Olympic Games Paris 2024 extension free?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, the extension is completely free. It is available on the Chrome Web Store at no cost and has a 4.8-star rating from 13 user reviews.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Who created the Olympic Games Paris 2024 extension?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The extension was created by Cesar Alvarenga, a Technical Lead specializing in AI at Arena. Cesar has also built other popular Chrome extensions including NFL Live Hub, and open-source libraries like react-input-emoji.",
+      },
+    },
+  ],
+};
+
+export const faqJsonld = JSON.stringify(faqJson);

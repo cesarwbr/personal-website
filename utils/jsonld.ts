@@ -8,6 +8,7 @@ export function getArticlesJSONLD(articles: Article[]): {
   organizationJSONLD: string;
   articlesJSONLD: string;
   faqJSONLD: string;
+  softwareApplicationsJSONLD: string;
 } {
   const person = {
     "@type": "Person",
@@ -281,9 +282,117 @@ export function getArticlesJSONLD(articles: Article[]): {
     ],
   };
 
+  // SoftwareApplication schemas (GEO: helps AI systems cite specific projects)
+  const softwareApplications = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: "My Avatar",
+        url: "https://myavatar.ai",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        description:
+          "AI-powered platform that lets creators build digital versions of themselves. Engage your audience with text chat, voice calls, and video calls that reflect your unique personality. Built with LangChain, LangGraph, MCP, and GPT.",
+        author: {
+          "@id": `${BASE_URL}/#person`,
+        },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+        },
+        keywords:
+          "AI avatar, digital avatar, LangChain, LangGraph, MCP, voice AI, video AI",
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "react-input-emoji",
+        url: "https://www.npmjs.com/package/react-input-emoji",
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Web",
+        description:
+          "A React input component with emoji picker, mentions, and autocomplete. Used by thousands of developers with millions of npm downloads.",
+        author: {
+          "@id": `${BASE_URL}/#person`,
+        },
+        downloadUrl: "https://www.npmjs.com/package/react-input-emoji",
+        softwareVersion: "latest",
+        programmingLanguage: "TypeScript",
+        runtimePlatform: "Node.js",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+        },
+        keywords:
+          "React, emoji picker, input component, npm, TypeScript, open source",
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "NFL Live Hub",
+        url: "https://nfllivehub.com",
+        applicationCategory: "SportsApplication",
+        operatingSystem: "Chrome",
+        applicationSubCategory: "BrowserExtension",
+        description:
+          "Chrome extension providing real-time NFL scores, stats, game recaps, standings, and fan chat. Built with Chrome's alarms API and service workers for efficient background processing.",
+        author: {
+          "@id": `${BASE_URL}/#person`,
+        },
+        browserRequirements: "Google Chrome",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.8",
+          reviewCount: "5",
+          bestRating: "5",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+        },
+        keywords:
+          "NFL, Chrome extension, live scores, sports, real-time",
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "Olympic Games Paris 2024",
+        url: `${BASE_URL}/olympic-games-paris-2024`,
+        applicationCategory: "SportsApplication",
+        operatingSystem: "Chrome",
+        applicationSubCategory: "BrowserExtension",
+        description:
+          "Chrome extension for real-time Olympic Games Paris 2024 videos, highlights, stats, game recaps, medals, and fan chat.",
+        author: {
+          "@id": `${BASE_URL}/#person`,
+        },
+        browserRequirements: "Google Chrome",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.8",
+          reviewCount: "13",
+          bestRating: "5",
+        },
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+        },
+        keywords:
+          "Olympics, Paris 2024, Chrome extension, live scores, medals, sports",
+      },
+    ],
+  };
+
   return {
     organizationJSONLD: JSON.stringify(organization),
     articlesJSONLD: JSON.stringify(articlesFormatted),
     faqJSONLD: JSON.stringify(faq),
+    softwareApplicationsJSONLD: JSON.stringify(softwareApplications),
   };
 }
