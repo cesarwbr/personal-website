@@ -1,3 +1,11 @@
+// Multi-Zones: the World Cup 2026 marketing site is a separate Next.js app
+// deployed with basePath '/worldcup'. We proxy the whole zone through this
+// domain. Set WORLDCUP_ZONE_URL in the environment to that deployment's origin
+// (its stable *.vercel.app alias) — no trailing slash, no /worldcup suffix.
+const WORLDCUP_ZONE_URL =
+  process.env.WORLDCUP_ZONE_URL ??
+  "https://world-cup-monorepo-website.vercel.app";
+
 module.exports = {
   reactStrictMode: true,
   images: {
@@ -38,6 +46,15 @@ module.exports = {
       {
         source: "/terms-of-service",
         destination: "/terms-of-service.html",
+      },
+      // World Cup 2026 zone — proxy the basePath root and everything under it.
+      {
+        source: "/worldcup",
+        destination: `${WORLDCUP_ZONE_URL}/worldcup`,
+      },
+      {
+        source: "/worldcup/:path*",
+        destination: `${WORLDCUP_ZONE_URL}/worldcup/:path*`,
       },
     ];
   },
