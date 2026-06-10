@@ -10,13 +10,32 @@ type Props = {
   projects: Project[];
 };
 
-const FEATURED_PROJECT = {
-  name: "My Avatar",
-  description:
-    "AI-powered platform to create your digital avatar. Engage your audience with text, voice, and video conversations that reflect your personality. Built with LangChain, LangGraph, and MCP.",
-  url: "https://myavatar.ai",
-  tags: ["LangChain", "LangGraph", "MCP", "Python", "GPT"],
+type FeaturedProject = {
+  name: string;
+  description: string;
+  url: string;
+  tags: string[];
+  /** Optional custom icon (local /public path). Falls back to the URL favicon. */
+  image?: string;
 };
+
+const FEATURED_PROJECTS: FeaturedProject[] = [
+  {
+    name: "World Cup 2026",
+    description:
+      "Companion site for the World Cup 2026 — live scores, AI predictions, match schedules and standings, localized across 5 languages. Built with Next.js, next-intl, and Tailwind, integrated into this site via Next.js Multi-Zones.",
+    url: "/worldcup",
+    tags: ["Next.js", "next-intl", "Tailwind", "i18n", "Vercel"],
+    image: "/images/world-cup-2026.png",
+  },
+  {
+    name: "My Avatar",
+    description:
+      "AI-powered platform to create your digital avatar. Engage your audience with text, voice, and video conversations that reflect your personality. Built with LangChain, LangGraph, and MCP.",
+    url: "https://myavatar.ai",
+    tags: ["LangChain", "LangGraph", "MCP", "Python", "GPT"],
+  },
+];
 
 export default function Projects({ projects }: Props) {
   const getContributors = useCallback((project: Project) => {
@@ -40,47 +59,54 @@ export default function Projects({ projects }: Props) {
         </div>
       </MotionWrapper>
 
-      <MotionWrapper delay={0.1}>
-        <Link
-          href={FEATURED_PROJECT.url}
-          target="_blank"
-          rel="noreferrer"
-          className={styles["featured-project"]}
-        >
-          <div className={styles["featured-project--glow"]} />
-          <div className={styles["featured-project--content"]}>
-            <header className={styles["featured-project--header"]}>
-              <div className={styles["featured-project--icon-wrapper"]}>
-                <Image
-                  src={getFavicon(FEATURED_PROJECT.url)}
-                  width={24}
-                  height={24}
-                  alt={FEATURED_PROJECT.name}
-                  className={styles["project--image"]}
-                />
+      {FEATURED_PROJECTS.map((featured, index) => {
+        const isInternal = featured.url.startsWith("/");
+
+        return (
+          <MotionWrapper key={featured.name} delay={0.1 + index * 0.08}>
+            <Link
+              href={featured.url}
+              target={isInternal ? "_self" : "_blank"}
+              rel={isInternal ? undefined : "noreferrer"}
+              className={styles["featured-project"]}
+            >
+              <div className={styles["featured-project--glow"]} />
+              <div className={styles["featured-project--content"]}>
+                <header className={styles["featured-project--header"]}>
+                  <div className={styles["featured-project--icon-wrapper"]}>
+                    <Image
+                      src={featured.image ?? getFavicon(featured.url)}
+                      width={28}
+                      height={28}
+                      alt={featured.name}
+                      className={styles["project--image"]}
+                      style={{ objectFit: "contain" }}
+                    />
+                  </div>
+                  <div>
+                    <h3 className={styles["featured-project--title"]}>
+                      {featured.name}
+                    </h3>
+                    <span className={styles["featured-project--badge"]}>
+                      Featured
+                    </span>
+                  </div>
+                </header>
+                <section className={styles["featured-project--description"]}>
+                  {featured.description}
+                </section>
+                <div className={styles["featured-project--tags"]}>
+                  {featured.tags.map((tag) => (
+                    <span key={tag} className={styles["featured-project--tag"]}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div>
-                <h3 className={styles["featured-project--title"]}>
-                  {FEATURED_PROJECT.name}
-                </h3>
-                <span className={styles["featured-project--badge"]}>
-                  Featured
-                </span>
-              </div>
-            </header>
-            <section className={styles["featured-project--description"]}>
-              {FEATURED_PROJECT.description}
-            </section>
-            <div className={styles["featured-project--tags"]}>
-              {FEATURED_PROJECT.tags.map((tag) => (
-                <span key={tag} className={styles["featured-project--tag"]}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Link>
-      </MotionWrapper>
+            </Link>
+          </MotionWrapper>
+        );
+      })}
 
       <ol className={styles["projects"]}>
         {projects.map((project, index) => (
