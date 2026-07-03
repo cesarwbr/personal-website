@@ -65,6 +65,21 @@ module.exports = {
         destination: "https://nfllivehub.com/",
         permanent: true,
       },
+      // World Cup 2026 zone pages live under /worldcup, but the zone app's
+      // next-intl <Link> hrefs (e.g. "/live-scores", "/terms") leak into its
+      // inline RSC payload as root-relative paths. Google harvests them from
+      // the <script> payload and resolves them against the root domain, hitting
+      // 404s. Consolidate those ghost URLs onto the real zone pages.
+      {
+        source: "/live-scores",
+        destination: "/worldcup/live-scores",
+        permanent: true,
+      },
+      {
+        source: "/terms",
+        destination: "/worldcup/terms",
+        permanent: true,
+      },
     ];
   },
 };
