@@ -370,7 +370,7 @@ const jsonldJson = {
 
 export const jsonld = JSON.stringify(jsonldJson);
 
-const faqJson = {
+export const faqJson = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [

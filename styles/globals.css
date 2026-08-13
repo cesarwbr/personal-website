@@ -187,3 +187,31 @@ html {
     filter: none;
   }
 }
+
+/* On-load entrance, used by the Olympic hero. Same idea as the scroll reveal:
+   the resting state is plain CSS that always applies, and the animation is
+   layered on top only once the bootstrap has confirmed JS runs. Unlike the
+   scroll reveal this needs no trigger — it plays out on its own, so a renderer
+   that never scrolls still ends up at the resting state. */
+[data-enter] {
+  transform: var(--enter-to, none);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-js] [data-enter] {
+    animation: enter var(--enter-duration, 0.9s) cubic-bezier(0.16, 1, 0.3, 1)
+      var(--enter-delay, 0s) both;
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: var(--enter-from, translateY(30px));
+  }
+
+  to {
+    opacity: 1;
+    transform: var(--enter-to, none);
+  }
+}

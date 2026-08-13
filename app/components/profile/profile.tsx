@@ -1,6 +1,12 @@
 import Image from "next/image";
 import styles from "./profile.module.css";
 import MotionWrapper from "../motion-wrapper/motion-wrapper";
+import {
+  greeting,
+  headlineAccent,
+  headlineRest,
+  profileTags,
+} from "../../../content/home";
 
 export default function Profile() {
   return (
@@ -23,27 +29,23 @@ export default function Profile() {
       </MotionWrapper>
       <div className={styles["profile--text"]}>
         <MotionWrapper delay={0.2}>
-          <div className={styles["profile--greeting"]}>
-            Hey, I&apos;m Cesar
-          </div>
+          <div className={styles["profile--greeting"]}>{greeting}</div>
         </MotionWrapper>
         <MotionWrapper delay={0.35}>
           <h1 className={styles["profile--description"]}>
             <span className={styles["profile--description--hero"]}>
-              Technical Lead, AI
-            </span>{" "}
-            building intelligent products with LLMs, agents, and real-time
-            experiences.
+              {headlineAccent}
+            </span>
+            {headlineRest}
           </h1>
         </MotionWrapper>
         <MotionWrapper delay={0.5}>
           <div className={styles["profile--tags"]}>
-            <span className={styles["tag"]}>Python</span>
-            <span className={styles["tag"]}>LangChain</span>
-            <span className={styles["tag"]}>LangGraph</span>
-            <span className={styles["tag"]}>MCP</span>
-            <span className={styles["tag"]}>TypeScript</span>
-            <span className={styles["tag"]}>React</span>
+            {profileTags.map((tag) => (
+              <span key={tag} className={styles["tag"]}>
+                {tag}
+              </span>
+            ))}
           </div>
         </MotionWrapper>
       </div>

@@ -11,7 +11,7 @@ import Projects from "./components/projects/projects";
 import { getAllProjects } from "./api/lib/projects";
 import MotionWrapper from "./components/motion-wrapper/motion-wrapper";
 import styles from "../styles/home.module.css";
-import { llmsAlternateTypes } from "../content/pages";
+import { alternateTypesFor } from "../content/pages";
 
 async function getData() {
   const allArticles = await getAllArticles();
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://cesarwilliam.com/",
-    types: llmsAlternateTypes,
+    types: alternateTypesFor("/index.md"),
   },
 };
 

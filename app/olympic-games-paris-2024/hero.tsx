@@ -1,559 +1,167 @@
-"use client";
-import { motion } from "framer-motion";
+import { CSSProperties } from "react";
 import styles from "../../styles/olympic-games-paris-2024.module.css";
 
+type Enter = {
+  /** Transform the element animates in from. */
+  from: string;
+  /** Resting transform, when it is not the identity. */
+  to?: string;
+  delay?: string;
+  duration?: string;
+};
+
+/**
+ * Turns an entrance spec into the custom properties the `[data-enter]` rules in
+ * globals.css read.
+ *
+ * `--enter-to` doubles as the element's resting transform, so the markup is
+ * correct even when the animation never runs — which is the whole point of
+ * moving these off framer-motion: the server HTML is no longer emitted at
+ * opacity 0 waiting for JS to reveal it.
+ */
+function enterStyle(enter: Enter, extra?: CSSProperties): CSSProperties {
+  // Every property is written out, defaults included. Custom properties
+  // inherit, so an element that omitted one would silently pick up its
+  // parent's value — which is how the inner box of each floating image ended
+  // up carrying the outer box's rotation on top of its own.
+  return {
+    ...extra,
+    "--enter-from": enter.from,
+    "--enter-to": enter.to ?? "none",
+    "--enter-delay": enter.delay ?? "0s",
+    "--enter-duration": enter.duration ?? "0.9s",
+  } as CSSProperties;
+}
+
+const imageStyle: CSSProperties = {
+  display: "block",
+  width: "100%",
+  height: "100%",
+  borderRadius: "inherit",
+  objectPosition: "center",
+  objectFit: "cover",
+  imageRendering: "auto",
+};
+
+const items: {
+  classNumber: string;
+  image: string;
+  container: Enter;
+  content?: Enter;
+}[] = [
+  {
+    classNumber: "",
+    image:
+      "https://framerusercontent.com/images/ghg952sAPRUsrne1XNmZKrm82k.jpg",
+    container: { from: "rotate(-55deg) scale(0.7)", to: "rotate(-7deg)" },
+    content: {
+      from: "translateX(150px) scale(0.9)",
+      duration: "1.2s",
+    },
+  },
+  {
+    classNumber: "2",
+    image: "https://framerusercontent.com/images/AmtDKvoYbn86jQ6LAuNQgg9DA.jpg",
+    container: { from: "rotate(41deg) scale(0.7)", to: "rotate(-7deg)" },
+    content: { from: "translateX(-20px) scale(0.9)", delay: "0.6s" },
+  },
+  {
+    classNumber: "3",
+    image:
+      "https://framerusercontent.com/images/HBFHPy55IlP65f42qLlZq91PXTc.jpg",
+    container: { from: "rotate(-41deg) scale(0.7)", to: "rotate(7deg)" },
+    content: { from: "translateX(-20px) scale(0.9)", delay: "0.6s" },
+  },
+  {
+    classNumber: "4",
+    image:
+      "https://framerusercontent.com/images/wH0uOXgKmz5x2MQYfzIneJdoIzU.jpg",
+    container: { from: "rotate(5deg) scale(0.7)", to: "rotate(5deg)" },
+    content: { from: "translateX(20px)", delay: "0.6s" },
+  },
+  {
+    classNumber: "5",
+    image: "https://framerusercontent.com/images/OiQb1GrOiazlduGtN9KXDBYjs.png",
+    container: { from: "translateY(-150px)", delay: "1s" },
+  },
+];
+
+const logo: Enter = { from: "translateY(-30px) scale(0.8)", delay: "0.2s" };
+const heading: Enter = { from: "translateY(30px) scale(0.8)", delay: "0.2s" };
+const description: Enter = { from: "translateY(30px)", delay: "0.2s" };
+const actionInstall: Enter = { from: "none", delay: "0.5s" };
+const actionProducthunt: Enter = { from: "none", delay: "1s" };
+
 export default function Hero() {
-  const items = [
-    {
-      classNumber: "",
-      image:
-        "https://framerusercontent.com/images/ghg952sAPRUsrne1XNmZKrm82k.jpg",
-      containerProps: {
-        animate: {
-          opacity: 1,
-          rotate: -7,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            damping: 30,
-            delay: 0,
-            mass: 1,
-            stiffness: 120,
-            type: "spring",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: -55,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 0.7,
-          skewX: 0,
-          skewY: 0,
-          x: 0,
-          y: 0,
-        },
-      },
-      contentProps: {
-        animate: {
-          opacity: 1,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            delay: 0,
-            duration: 1.2,
-            ease: [0.44, 0, 0.56, 1],
-            type: "tween",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 0.9,
-          skewX: 0,
-          skewY: 0,
-          x: 150,
-          y: 0,
-        },
-      },
-    },
-    {
-      classNumber: "2",
-      image:
-        "https://framerusercontent.com/images/AmtDKvoYbn86jQ6LAuNQgg9DA.jpg",
-      containerProps: {
-        animate: {
-          opacity: 1,
-          rotate: -7,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            damping: 30,
-            delay: 0,
-            mass: 1,
-            stiffness: 120,
-            type: "spring",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: 41,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 0.7,
-          skewX: 0,
-          skewY: 0,
-          x: 0,
-          y: 0,
-        },
-      },
-      contentProps: {
-        animate: {
-          opacity: 1,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            damping: 50,
-            delay: 0.6,
-            mass: 1,
-            stiffness: 150,
-            type: "spring",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 0.9,
-          skewX: 0,
-          skewY: 0,
-          x: -20,
-          y: 0,
-        },
-      },
-    },
-    {
-      classNumber: "3",
-      image:
-        "https://framerusercontent.com/images/HBFHPy55IlP65f42qLlZq91PXTc.jpg",
-      containerProps: {
-        animate: {
-          opacity: 1,
-          rotate: 7,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            damping: 30,
-            delay: 0,
-            mass: 1,
-            stiffness: 120,
-            type: "spring",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: -41,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 0.7,
-          skewX: 0,
-          skewY: 0,
-          x: 0,
-          y: 0,
-        },
-      },
-      contentProps: {
-        animate: {
-          opacity: 1,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            damping: 50,
-            delay: 0.6,
-            mass: 1,
-            stiffness: 150,
-            type: "spring",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 0.9,
-          skewX: 0,
-          skewY: 0,
-          x: -20,
-          y: 0,
-        },
-      },
-    },
-    {
-      classNumber: "4",
-      image:
-        "https://framerusercontent.com/images/wH0uOXgKmz5x2MQYfzIneJdoIzU.jpg",
-      containerProps: {
-        animate: {
-          opacity: 1,
-          rotate: 5,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            damping: 30,
-            delay: 0,
-            mass: 1,
-            stiffness: 120,
-            type: "spring",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: 5,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 0.7,
-          skewX: 0,
-          skewY: 0,
-          x: 0,
-          y: 0,
-        },
-      },
-      contentProps: {
-        animate: {
-          opacity: 1,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            damping: 50,
-            delay: 0.6,
-            mass: 1,
-            stiffness: 150,
-            type: "spring",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          x: 20,
-          y: 0,
-        },
-      },
-    },
-    {
-      classNumber: "5",
-      image:
-        "https://framerusercontent.com/images/OiQb1GrOiazlduGtN9KXDBYjs.png",
-      containerProps: {
-        animate: {
-          opacity: 1,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          transition: {
-            damping: 30,
-            delay: 1,
-            mass: 1,
-            stiffness: 150,
-            type: "spring",
-          },
-          x: 0,
-          y: 0,
-        },
-        initial: {
-          opacity: 0.001,
-          rotate: 0,
-          rotateX: 0,
-          rotateY: 0,
-          scale: 1,
-          skewX: 0,
-          skewY: 0,
-          x: 0,
-          y: -150,
-        },
-      },
-      contentProps: {},
-    },
-  ];
-
-  const logo = {
-    containerProps: {
-      animate: {
-        opacity: 1,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        skewX: 0,
-        skewY: 0,
-        transition: {
-          damping: 50,
-          delay: 0.2,
-          mass: 1,
-          stiffness: 130,
-          type: "spring",
-        },
-        x: 0,
-        y: 0,
-      },
-      initial: {
-        opacity: 0.001,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 0.8,
-        skewX: 0,
-        skewY: 0,
-        x: 0,
-        y: -30,
-      },
-    },
-  };
-
-  const heading = {
-    containerProps: {
-      animate: {
-        opacity: 1,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        skewX: 0,
-        skewY: 0,
-        transition: {
-          damping: 50,
-          delay: 0.2,
-          mass: 1,
-          stiffness: 130,
-          type: "spring",
-        },
-        x: 0,
-        y: 0,
-      },
-      initial: {
-        opacity: 0.001,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 0.8,
-        skewX: 0,
-        skewY: 0,
-        x: 0,
-        y: 30,
-      },
-    },
-  };
-
-  const description = {
-    containerProps: {
-      animate: {
-        opacity: 1,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        skewX: 0,
-        skewY: 0,
-        transition: {
-          damping: 50,
-          delay: 0.2,
-          mass: 1,
-          stiffness: 150,
-          type: "spring",
-        },
-        x: 0,
-        y: 0,
-      },
-      initial: {
-        opacity: 0.001,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        skewX: 0,
-        skewY: 0,
-        x: 0,
-        y: 30,
-      },
-    },
-  };
-
-  const actionInstall = {
-    containerProps: {
-      animate: {
-        opacity: 1,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        skewX: 0,
-        skewY: 0,
-        transition: {
-          damping: 30,
-          delay: 0.5,
-          mass: 1,
-          stiffness: 150,
-          type: "spring",
-        },
-        x: 0,
-        y: 0,
-      },
-      initial: {
-        opacity: 0.001,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        skewX: 0,
-        skewY: 0,
-        x: 0,
-        y: 0,
-      },
-    },
-  };
-
-  const actionProducthunt = {
-    containerProps: {
-      animate: {
-        opacity: 1,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        skewX: 0,
-        skewY: 0,
-        transition: {
-          damping: 30,
-          delay: 1,
-          mass: 1,
-          stiffness: 150,
-          type: "spring",
-        },
-        x: 0,
-        y: 0,
-      },
-      initial: {
-        opacity: 0.001,
-        rotate: 0,
-        rotateX: 0,
-        rotateY: 0,
-        scale: 1,
-        skewX: 0,
-        skewY: 0,
-        x: 0,
-        y: 0,
-      },
-    },
-  };
   return (
     <div className={styles["hero--container"]}>
       <div className={styles["hero--floating-images"]}>
         {items.map((item) => (
-          <motion.div
+          <div
             key={item.classNumber}
             className={styles[`hero--box${item.classNumber}`]}
-            {...item.containerProps}
+            data-enter
+            style={enterStyle(item.container)}
           >
-            <motion.div
+            <div
               className={styles[`hero--box${item.classNumber}-internal`]}
-              {...item.contentProps}
+              {...(item.content
+                ? { "data-enter": true, style: enterStyle(item.content) }
+                : {})}
             >
               <img
                 decoding="async"
                 sizes="100vw"
                 src={item.image}
                 alt=""
-                style={{
-                  display: "block",
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "inherit",
-                  objectPosition: "center",
-                  objectFit: "cover",
-                  imageRendering: "auto",
-                }}
+                style={imageStyle}
               />
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         ))}
       </div>
       <div className={styles["hero--content"]}>
         <div className={styles["hero--heading-content"]}>
-          <motion.div className={styles["hero--logo"]} {...logo.containerProps}>
+          <div
+            className={styles["hero--logo"]}
+            data-enter
+            style={enterStyle(logo)}
+          >
             <img
               decoding="async"
               sizes="200px"
               src="https://framerusercontent.com/images/1L3PJGQ1pO6mbXawBIUZHc0yQ.png"
               alt=""
-              style={{
-                display: "block",
-                width: "100%",
-                height: "100%",
-                borderRadius: "inherit",
-                objectPosition: "center",
-                objectFit: "cover",
-                imageRendering: "auto",
-              }}
+              style={imageStyle}
             />
-          </motion.div>
-          <motion.div
+          </div>
+          <div
             className={styles["hero--heading"]}
-            {...heading.containerProps}
+            data-enter
+            style={enterStyle(heading)}
           >
             <h1>
               Olympic Games
               <br />
               Chrome Extension
             </h1>
-          </motion.div>
-          <motion.div
+          </div>
+          <div
             className={styles["hero--description"]}
-            {...description.containerProps}
+            data-enter
+            style={enterStyle(description)}
           >
             <p>
               Follow the Paris 2024 Olympics with schedules, video highlights,
               medal tracking, and live chat with fans worldwide.
             </p>
-          </motion.div>
+          </div>
         </div>
         <div className={styles["hero--actions"]}>
-          <motion.a
+          <a
             className={styles["hero--action-install"]}
-            {...actionInstall.containerProps}
+            data-enter
+            style={enterStyle(actionInstall)}
             href="https://chromewebstore.google.com/detail/olympic-games-paris-2024/gogmlglijehaingjggcmdkpjagodcohl?utm_source=product_page&utm_medium=referral&utm_campaign=chrome_extension_launch"
             target="_blank"
             rel="noreferrer"
@@ -571,24 +179,26 @@ export default function Hero() {
               }}
             />
             <span>Install from Chrome Web Store</span>
-          </motion.a>
-          <motion.div
+          </a>
+          <div
             className={styles["hero--action-producthunt"]}
-            {...actionProducthunt.containerProps}
+            data-enter
+            style={enterStyle(actionProducthunt)}
           >
             <a
               href="https://www.producthunt.com/posts/olympic-games-chrome-extension?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-olympic&#0045;games&#0045;chrome&#0045;extension"
               target="_blank"
+              rel="noreferrer"
             >
               <img
                 src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=472237&theme=light"
-                alt="Olympic&#0032;Games&#0032;Chrome&#0032;Extension - Track&#0032;Paris&#0032;2024&#0032;schedules&#0044;&#0032;highlights&#0044;&#0032;medals&#0032;&#0043;&#0032;fan&#0032;chat | Product Hunt"
+                alt="Olympic Games Chrome Extension - Track Paris 2024 schedules, highlights, medals + fan chat | Product Hunt"
                 style={{ width: "200px", height: "54px" }}
                 width="200"
                 height="54"
               />
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
