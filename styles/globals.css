@@ -151,3 +151,39 @@ html {
 .article--image img {
   object-fit: cover;
 }
+
+/* Scroll reveal (see app/components/motion-wrapper).
+   The hidden starting state is gated on html[data-js], which the reveal
+   bootstrap in the root layout sets before first paint — and only when
+   IntersectionObserver is available to reveal things again. Without JS, the
+   content simply stays visible, so the server HTML is legible to crawlers
+   that never execute or paint it. */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-js] [data-reveal] {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(8px);
+    transition: opacity 0.7s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+      transform 0.7s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+      filter 0.7s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+
+  html[data-js] [data-reveal="down"] {
+    transform: translateY(-40px);
+  }
+
+  html[data-js] [data-reveal="left"] {
+    transform: translateX(40px);
+  }
+
+  html[data-js] [data-reveal="right"] {
+    transform: translateX(-40px);
+  }
+
+  html[data-js] [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

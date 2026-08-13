@@ -29,7 +29,12 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://cesarwilliam.com/sitemap.xml",
+    // The World Cup zone is a separate app with its own localized sitemap;
+    // without this line nothing on the domain advertises those URLs.
+    sitemap: [
+      "https://cesarwilliam.com/sitemap.xml",
+      "https://cesarwilliam.com/worldcup/sitemap.xml",
+    ],
     host: "https://cesarwilliam.com",
   };
 }

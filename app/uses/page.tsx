@@ -5,6 +5,7 @@ import Footer from "../components/footer/footer";
 import MotionWrapper from "../components/motion-wrapper/motion-wrapper";
 import { jsonld } from "./jsonld";
 import styles from "../../styles/uses.module.css";
+import { llmsAlternateTypes } from "../../content/pages";
 
 const title = "Uses - Cesar Alvarenga's Tools & Tech Stack";
 const description =
@@ -52,6 +53,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://cesarwilliam.com/uses",
+    types: llmsAlternateTypes,
   },
 };
 

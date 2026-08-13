@@ -6,6 +6,7 @@ import { jsonld, faqJsonld } from "./jsonld";
 import Hero from "./hero";
 import MainFeatures from "./main-features";
 import Features from "./features";
+import { llmsAlternateTypes } from "../../content/pages";
 
 const title =
   "Olympic Games Paris 2024 Chrome Extension: Real-time Medals, Videos, Highlights, and Fan Chat";
@@ -57,6 +58,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://cesarwilliam.com/olympic-games-paris-2024",
+    types: llmsAlternateTypes,
   },
 };
 

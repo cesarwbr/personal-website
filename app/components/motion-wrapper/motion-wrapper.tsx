@@ -1,6 +1,4 @@
-"use client";
-import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { CSSProperties, ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -9,13 +7,17 @@ type Props = {
   direction?: "up" | "down" | "left" | "right";
 };
 
-const directionOffset = {
-  up: { y: 40 },
-  down: { y: -40 },
-  left: { x: 40 },
-  right: { x: -40 },
-};
-
+/**
+ * Scroll-reveal wrapper.
+ *
+ * The hidden starting state lives in CSS behind `html[data-js]` (set by the
+ * reveal bootstrap in the root layout) instead of inline styles, so the server
+ * HTML ships fully visible. Crawlers and extractors that parse HTML without
+ * executing or painting JS see the content; browsers still get the animation.
+ *
+ * Keep this a server component — the reveal is driven by a single shared
+ * IntersectionObserver in the layout, so no client bundle is needed here.
+ */
 export default function MotionWrapper({
   children,
   delay = 0,
@@ -23,27 +25,12 @@ export default function MotionWrapper({
   direction = "up",
 }: Props) {
   return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        filter: "blur(8px)",
-        ...directionOffset[direction],
-      }}
-      whileInView={{
-        opacity: 1,
-        filter: "blur(0px)",
-        y: 0,
-        x: 0,
-      }}
-      transition={{
-        duration: 0.7,
-        delay,
-        ease: [0.21, 0.47, 0.32, 0.98],
-      }}
-      viewport={{ once: true, amount: 0.1 }}
+    <div
+      data-reveal={direction}
       className={className}
+      style={{ "--reveal-delay": `${delay}s` } as CSSProperties}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
